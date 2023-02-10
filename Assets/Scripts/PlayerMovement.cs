@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Jump();
         }
-        
-        Debug.Log(touchingFloor);
     }
 
     private void Move(float inputX) {
