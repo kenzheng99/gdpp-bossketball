@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
     private bool touchingFloor;
+    private bool canDoubleJump;
 
     void Start() {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -16,7 +17,12 @@ public class PlayerMovement : MonoBehaviour {
         float inputX = Input.GetAxisRaw("Horizontal");
         Move(inputX);
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Jump();
+            if (touchingFloor) {
+                Jump();
+            } else if (canDoubleJump) {
+                Jump();
+                canDoubleJump = false;
+            }
         }
     }
 
@@ -25,14 +31,13 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Jump() {
-        if (touchingFloor) {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Ground")) {
             touchingFloor = true;
+            canDoubleJump = true;
         }
     }
 
