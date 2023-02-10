@@ -18,21 +18,28 @@ public class BasketDetection : MonoBehaviour {
         Debug.Log(hoop);
         Debug.Log(hoopUpper);
         Debug.Log(hoopLower);
-        Debug.Log("oh no");
     }
 
     private void Update() {
-        // if (if)
-        // check if entered hoop area
+        if (inHoopArea) {
+            // do shit
+        }
         
     }
 
+    // public void enterUpper() {
+    //     
+    // }
+
     private void OnTriggerEnter2D(Collider2D col) {
-        // if (col )
-        inHoopArea = true;
+        if (col.gameObject.CompareTag("Ball")) {
+            inHoopArea = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other) {
-        inHoopArea = false;
+        if (other.gameObject.CompareTag("Ball")) {
+            inHoopArea = false;
+        }
     }
 }
