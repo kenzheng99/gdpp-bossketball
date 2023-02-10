@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] GameObject ballPrefab;
-    [SerializeField] private float launchPower;
+    [SerializeField] private float minLaunchPower;
+    [SerializeField] private float maxLaunchPower;
+    [SerializeField] private float powerScaleRate;
+    [SerializeField] private int lineLength;
 
+    private float launchPower;
+    private Vector3 launchVelocity;
     private LineRenderer lineRenderer;
     void Start() {
         lineRenderer = GetComponent<LineRenderer>();
@@ -12,30 +18,39 @@ public class PlayerShooting : MonoBehaviour
     }
 
     void Update() {
-            
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        // start charging shot
+        if (Input.GetMouseButtonDown(0)) {
+            launchPower = minLaunchPower;
+        }
+        
+        // while charging shot
+        if (launchPower > 0) {
+            launchPower += powerScaleRate + Time.deltaTime;
+            launchPower = Math.Min(launchPower, maxLaunchPower);
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = -Camera.main.transform.position.z;
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            Vector3 launchVelocity = (mouseWorldPosition - transform.position).normalized * launchPower;
+            launchVelocity = (mouseWorldPosition - transform.position).normalized * launchPower;
             RenderLine(launchVelocity);
+        }
             
-            Shoot(launchVelocity);
+        // shoot ball
+        if (Input.GetMouseButtonUp(0)) {
+            Shoot();
+            launchPower = 0;
+            lineRenderer.positionCount = 0;
         }
     }
 
-    void Shoot(Vector2 launchVelocity) {
-        
-        
+    void Shoot() {
         GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation);
         ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(launchVelocity.x, launchVelocity.y), ForceMode2D.Impulse);
     }
 
     private void RenderLine(Vector2 velocity) {
-        int numSegments = 1000;
-        lineRenderer.positionCount = numSegments;
-        Vector2[] trajectory = Plot(transform.position, velocity, 1, numSegments);
-        Vector3[] positions = new Vector3[numSegments];
+        lineRenderer.positionCount = lineLength;
+        Vector2[] trajectory = Plot(transform.position, velocity, 1, lineLength);
+        Vector3[] positions = new Vector3[lineLength];
         for (int i = 0; i < positions.Length; i++) {
             positions[i] = trajectory[i];
         }
