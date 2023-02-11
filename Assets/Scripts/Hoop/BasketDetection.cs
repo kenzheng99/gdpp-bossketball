@@ -5,31 +5,28 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasketDetection : MonoBehaviour {
-    private GameObject hoop;
-    private GameObject hoopUpper;
-    private GameObject hoopLower;
+    // private GameObject hoopUpper;
+    // private GameObject hoopLower;
 
     private bool inHoopArea;
+    private int finalCollide = 0; // 0:none, 1:upper enter, 2:upper exit, 3:lower enter, 4:lower exit
 
     private void Start() {
-        hoop = gameObject;
-        hoopUpper = hoop.transform.GetChild(0).gameObject;
-        hoopLower = hoop.transform.GetChild(1).gameObject;
-        Debug.Log(hoop);
-        Debug.Log(hoopUpper);
-        Debug.Log(hoopLower);
+        // hoopUpper = hoop.transform.GetChild(0).gameObject;
+        // hoopLower = hoop.transform.GetChild(1).gameObject;
     }
 
     private void Update() {
+        
         if (inHoopArea) {
             // do shit
         }
-        
     }
 
-    // public void enterUpper() {
-    //     
-    // }
+    public void FinalCollision(int colType) {
+        finalCollide = colType;
+        Debug.Log(finalCollide);
+    }
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Ball")) {
