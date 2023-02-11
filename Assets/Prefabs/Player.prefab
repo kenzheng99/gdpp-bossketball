@@ -289,6 +289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   totalHearts: 5
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: 606284b07b875441ea4dfe848ce8828f, type: 3}
   emptyHeart: {fileID: 21300000, guid: fd49ea28649b742b0b7446275cddb1c9, type: 3}
