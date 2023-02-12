@@ -18,19 +18,25 @@ public class BallBehavior : MonoBehaviour {
 
     private void Update()
     {
+        // once a ball hits ground, start fading it and destroy after destroyTime seconds
         if (hitGround) {
+            // difference between current time and hit ground time
             var secondsOnGround = (DateTime.Now - whenHitGround).Seconds;
+            // Destroy if on ground for amount of time
             if (secondsOnGround >= destroyTime)
             {
                 Destroy(gameObject);
             }
 
-            Color ballColor = ballMaterial.color;
+            // decrease ball material alpha to fade it
+            var ballColor = ballMaterial.color;
             ballColor.a -= Time.deltaTime * (1/(float)destroyTime);
             ballMaterial.color = ballColor;
+        }
 
-            // ballColor.a -= Time.deltaTime * (float)0.1;
-            // GetComponent<MeshRenderer>().material.color = ballColor ;
+        // case to destroy balls that fall off the map
+        if (gameObject.transform.position.y < -50) {
+            Destroy(gameObject);
         }
     }
 
