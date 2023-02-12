@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SpiralAttackState
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 419417373ea39da4d9f2326e7da8623a, type: 3}
-  durationSeconds: 5
-  moveSpeed: 30
-  projectileSpeed: 10
+  postAttackWait: 5
+  bossMoveSpeed: 25
+  projectileSpeed: 7
+  numProjectiles: 12
+  numAttacks: 2
+  coolDown: 0.1

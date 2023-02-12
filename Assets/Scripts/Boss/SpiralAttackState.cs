@@ -1,58 +1,68 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "BossStates/SpiralAttackState")]
 public class SpiralAttackState: BossState {
     
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float durationSeconds;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float postAttackWait;
+    [SerializeField] private float bossMoveSpeed;
     [SerializeField] private float projectileSpeed;
-    
+    [SerializeField] private int numProjectiles;
+    [SerializeField] private int numAttacks;
+    [SerializeField] private float coolDown;
+
     private Rigidbody2D bossRb;
-    private GameObject player;
     private Vector2 targetPosition;
+    private Vector3 fireDir;
+    private Timer fireCoolDown;
     private Timer timer;
-    private bool attacked;
+    private int numFired;
+    
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("SpiralAttackState");
-        timer = new Timer(durationSeconds);
+        timer = new Timer(postAttackWait);
+        fireCoolDown = new Timer(coolDown);
         
         bossRb = stateMachine.GetComponent<Rigidbody2D>();
         targetPosition = new Vector2(0, 6);
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        attacked = false;
+        
+        numFired = 0;
+        fireDir = Vector3.down;
     }
 
     public override void UpdateState(BossStateMachine stateMachine) {
 
-        if (Vector2.Distance(bossRb.position, targetPosition) < 2) {
+        if (Vector2.Distance(bossRb.position, targetPosition) < 1) {
             // arrived, start attack
-            if (!attacked) {
-                FireProjectile(Vector3.left);
-                FireProjectile(Vector3.right);
-                attacked = true;
+            if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
+                FireProjectile(fireDir);
+                fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
+                fireCoolDown = new Timer(coolDown);
+                numFired++;
             }
-            Debug.Log("player pos"+ player.transform.position);
+            fireCoolDown.Tick(Time.deltaTime);
         }
         else {
             Vector2 newPosition = Vector2.MoveTowards(bossRb.position, 
-                targetPosition, moveSpeed * Time.deltaTime);
+                targetPosition, bossMoveSpeed * Time.deltaTime);
             bossRb.MovePosition(newPosition);
         }
-        
-        // timer.Tick(Time.deltaTime);
+
+        if (numFired >= numAttacks * numProjectiles) {
+            timer.Tick(Time.deltaTime);
+        }
         if (timer.Done()) {
             stateMachine.SwitchState(stateMachine.idleState);
         }
     }
 
     private Projectile FireProjectile(Vector3 target) {
-        Vector3 spawnPos = bossRb.position;
+        Vector3 spawnPos = bossRb.position; // makes a V2 out of V2
         GameObject projectileObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Projectile projectile = projectileObj.GetComponent<Projectile>();
         projectile.SetTrajectory(target, projectileSpeed);
-        return projectile;
+        return projectile; // return projectile lets you edit projectile trajectory later (player seeking)
     }
 }
