@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 838281898}
   - component: {fileID: 838281900}
   - component: {fileID: 4002018257547982453}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 3941726116949240409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8755, y: 4, z: -5.098406}
-  m_LocalScale: {x: 8, y: 1, z: 8}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4.98, y: 0.6225, z: 4.98}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6513383985259738238}
   m_Father: {fileID: 0}

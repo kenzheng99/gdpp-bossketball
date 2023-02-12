@@ -8,8 +8,10 @@ public class BossStateMachine : MonoBehaviour {
     
     private BossState currentState;
     void Start() {
-        currentState = idleState;
-        idleState.EnterState(this);
+        // currentState = idleState;
+        // idleState.EnterState(this);        
+        currentState = spiralAttackState;
+        spiralAttackState.EnterState(this);
     }
     void Update() {
         currentState.UpdateState(this);
