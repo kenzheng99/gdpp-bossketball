@@ -7,8 +7,8 @@ public class HoopLowerDetection : MonoBehaviour
     private BasketDetection basket;
 
     // Start is called before the first frame update
-    void Start() {
-        basket = transform.parent.gameObject.GetComponent<BasketDetection>();
+    private void Start() {
+        basket = GameObject.Find("HoopArea").GetComponent<BasketDetection>();
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
