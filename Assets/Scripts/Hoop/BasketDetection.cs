@@ -33,6 +33,7 @@ public class BasketDetection : MonoBehaviour {
             inHoopArea = false;
             if (enterTop && finalCollide == 4) {
                 Debug.Log("Score");
+                // damage Boss 
             }
             enterTop = false;
         }
