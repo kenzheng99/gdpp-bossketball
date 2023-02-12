@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -19,7 +20,10 @@ public class SpiralAttackState: BossState {
     private Timer fireCoolDown;
     private Timer timer;
     private int numFired;
-    
+
+    private Transform playerTr;
+    private List<GameObject> projectiles;
+
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("SpiralAttackState");
         timer = new Timer(postAttackWait);
@@ -30,6 +34,9 @@ public class SpiralAttackState: BossState {
         
         numFired = 0;
         fireDir = Vector3.down;
+
+        playerTr = GameObject.FindGameObjectWithTag("Player").transform;
+        projectiles = new List<GameObject>();
     }
 
     public override void UpdateState(BossStateMachine stateMachine) {
@@ -37,7 +44,7 @@ public class SpiralAttackState: BossState {
         if (Vector2.Distance(bossRb.position, targetPosition) < 1) {
             // arrived, start attack
             if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
-                FireProjectile(fireDir);
+                projectiles.Add(FireProjectile(fireDir));
                 fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
                 fireCoolDown = new Timer(coolDown);
                 numFired++;
@@ -50,6 +57,13 @@ public class SpiralAttackState: BossState {
             bossRb.MovePosition(newPosition);
         }
 
+        foreach (var p in projectiles) {
+            if (p != null) {
+                p.GetComponent<Projectile>().SetTrajectory(playerTr.position - 
+                    p.transform.position, projectileSpeed);
+            }
+        }
+
         if (numFired >= numAttacks * numProjectiles) {
             timer.Tick(Time.deltaTime);
         }
@@ -58,11 +72,11 @@ public class SpiralAttackState: BossState {
         }
     }
 
-    private Projectile FireProjectile(Vector3 target) {
+    private GameObject FireProjectile(Vector3 target) {
         Vector3 spawnPos = bossRb.position; // makes a V2 out of V2
         GameObject projectileObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Projectile projectile = projectileObj.GetComponent<Projectile>();
         projectile.SetTrajectory(target, projectileSpeed);
-        return projectile; // return projectile lets you edit projectile trajectory later (player seeking)
+        return projectileObj; // return projectile lets you edit projectile trajectory later (player seeking)
     }
 }
