@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BasketDetection : MonoBehaviour {
 
+    public Boss _boss;
     private bool inHoopArea;
     private bool firstCollision;
     private bool enterTop;
@@ -33,7 +34,9 @@ public class BasketDetection : MonoBehaviour {
             inHoopArea = false;
             if (enterTop && finalCollide == 4) {
                 Debug.Log("Score");
-                // damage Boss 
+                _boss.BossTakeDamage(20);
+                //boss takes damage
+                // Boss.TakeDamage(20);
             }
             enterTop = false;
         }

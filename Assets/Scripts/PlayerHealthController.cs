@@ -7,10 +7,13 @@ public class PlayerHealthController : MonoBehaviour
 {
     public int health;
     public int totalHearts;
+    public bool isInvulnerable = false;
 
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
+    [SerializeField] private float invulnerableDurationSeconds;
+    [SerializeField] private float invulnerabilityDeltaTime;
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +55,38 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void PlayerTakeDamage(int damage)
     {
-        health -= damage;
+        Debug.Log("player takin damage");
+        if (!isInvulnerable)
+        {
+            health -= damage;
+            StartCoroutine(BecomeTemporarilyInvulnerable());
+        }
     }
+    // collide with any projectiles or w the enemy itself
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("in contact w enemy object");
+            PlayerTakeDamage(1);
+        }
+    }
+
+    private IEnumerator BecomeTemporarilyInvulnerable()
+    {
+        Debug.Log("Player turned invincible!");
+        isInvulnerable = true;
+
+        for (float i = 0; i < invulnerableDurationSeconds; i += invulnerabilityDeltaTime)
+        {
+            yield return new WaitForSeconds(invulnerabilityDeltaTime);
+        }
+
+        isInvulnerable = false;
+        Debug.Log("Player is no longer invincible!");
+    }
+
+
 }

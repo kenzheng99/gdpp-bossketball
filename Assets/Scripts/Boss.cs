@@ -20,14 +20,14 @@ public class Boss : MonoBehaviour
     void Update()
     {
         //placeholder to test health bar
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            TakeDamage(10);
+            BossTakeDamage(10);
         }
     }
 
     //call this function with hoop detection when a shot is succesfully made
-    public void TakeDamage(int damage)
+    public void BossTakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
