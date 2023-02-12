@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4c0e6c0f1d470b9f41f3852a3a986d, type: 3}
   m_Name: IdleState
   m_EditorClassIdentifier: 
+  durationSeconds: 100
+  moveSpeed: 10
+  waitTimeSeconds: 2
+  moveBounds:
+    m_Center: {x: 0, y: 8, z: 0}
+    m_Extent: {x: 20, y: 5, z: 0}

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a262fbcea845458ec32c62e37859d8, type: 3}
   m_Name: SpiralAttackState
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 889152061511503595, guid: ba687b6f1ffc441808b6bd2d08adb471, type: 3}
+  durationSeconds: 5
