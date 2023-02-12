@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 838281900}
   - component: {fileID: 4002018257547982453}
   m_Layer: 8
-  m_Name: Boss
+  m_Name: BasketBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
