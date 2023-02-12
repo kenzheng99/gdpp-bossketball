@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "BossStates/SpiralAttackState")]
 public class SpiralAttackState: BossState {
@@ -12,21 +10,20 @@ public class SpiralAttackState: BossState {
     [SerializeField] private int numProjectiles;
     [SerializeField] private int numAttacks;
     [SerializeField] private float coolDown;
+    [SerializeField] private Vector2 targetPosition;
 
     private Rigidbody2D bossRb;
-    private Vector2 targetPosition;
     private Vector3 fireDir;
     private Timer fireCoolDown;
-    private Timer timer;
+    private Timer postAttackWaitTimer;
     private int numFired;
     
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("SpiralAttackState");
-        timer = new Timer(postAttackWait);
+        postAttackWaitTimer = new Timer(postAttackWait);
         fireCoolDown = new Timer(coolDown);
         
         bossRb = stateMachine.GetComponent<Rigidbody2D>();
-        targetPosition = new Vector2(0, 6);
         
         numFired = 0;
         fireDir = Vector3.down;
@@ -36,6 +33,8 @@ public class SpiralAttackState: BossState {
 
         if (Vector2.Distance(bossRb.position, targetPosition) < 1) {
             // arrived, start attack
+            bossRb.velocity = Vector2.zero;
+            // TODO fix bug with fire cooldown not working properly
             if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
                 FireProjectile(fireDir);
                 fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
@@ -51,9 +50,9 @@ public class SpiralAttackState: BossState {
         }
 
         if (numFired >= numAttacks * numProjectiles) {
-            timer.Tick(Time.deltaTime);
+            postAttackWaitTimer.Tick(Time.deltaTime);
         }
-        if (timer.Done()) {
+        if (postAttackWaitTimer.Done()) {
             stateMachine.SwitchState(stateMachine.idleState);
         }
     }

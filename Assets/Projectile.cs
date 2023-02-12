@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Vector2 = System.Numerics.Vector2;
 
 public class Projectile : MonoBehaviour {
 
@@ -12,7 +9,7 @@ public class Projectile : MonoBehaviour {
     private float projectileSpeed;
 
     private void Update() {
-        var projectileTransform = gameObject.transform;
+        Transform projectileTransform = gameObject.transform;
         projectileTransform.Translate(Time.deltaTime*projectileSpeed*targetPos.normalized);
         if (Math.Abs(projectileTransform.position.x) > levelWidth ||
             Math.Abs(projectileTransform.position.y) > levelHeight) {
