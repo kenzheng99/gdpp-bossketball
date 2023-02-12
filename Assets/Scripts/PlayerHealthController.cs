@@ -14,6 +14,7 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField] private Sprite emptyHeart;
     [SerializeField] private float invulnerableDurationSeconds;
     [SerializeField] private float invulnerabilityDeltaTime;
+    [SerializeField] private GameObject playerModel;
 
     // Start is called before the first frame update
     void Start()
@@ -81,12 +82,24 @@ public class PlayerHealthController : MonoBehaviour
 
         for (float i = 0; i < invulnerableDurationSeconds; i += invulnerabilityDeltaTime)
         {
+            // Alternate between 0 and 1 scale to simulate flashing
+            if (playerModel.transform.localScale == Vector3.one)
+            {
+                ScaleModelTo(Vector3.zero);
+            }
+            else
+            {
+                ScaleModelTo(Vector3.one);
+            }
             yield return new WaitForSeconds(invulnerabilityDeltaTime);
         }
-
-        isInvulnerable = false;
         Debug.Log("Player is no longer invincible!");
+        isInvulnerable = false;
+        ScaleModelTo(Vector3.one);
     }
 
-
+    private void ScaleModelTo(Vector3 scale)
+    {
+        playerModel.transform.localScale = scale;
+    }
 }
