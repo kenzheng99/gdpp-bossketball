@@ -41,6 +41,4 @@ public class BasketDetection : MonoBehaviour {
             enterTop = false;
         }
     }
-
-
 }
