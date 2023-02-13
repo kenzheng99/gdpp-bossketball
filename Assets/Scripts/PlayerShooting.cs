@@ -25,7 +25,8 @@ public class PlayerShooting : MonoBehaviour
         
         // while charging shot
         if (launchPower > 0) {
-            launchPower += powerScaleRate + Time.deltaTime;
+            launchPower += powerScaleRate * Time.deltaTime;
+            
             launchPower = Math.Min(launchPower, maxLaunchPower);
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = -Camera.main.transform.position.z;
