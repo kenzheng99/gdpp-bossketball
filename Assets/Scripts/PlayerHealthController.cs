@@ -58,7 +58,6 @@ public class PlayerHealthController : MonoBehaviour
 
     public void PlayerTakeDamage(int damage)
     {
-        Debug.Log("player takin damage");
         if (!isInvulnerable)
         {
             health -= damage;
@@ -70,16 +69,16 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("in contact w enemy object");
             PlayerTakeDamage(1);
         }
     }
 
     private IEnumerator BecomeTemporarilyInvulnerable()
     {
-        Debug.Log("Player turned invincible!");
         isInvulnerable = true;
-
+        // when invulnerable can go through boss w/o getting hurt
+        Physics2D.IgnoreLayerCollision(6, 8, true);
+           
         for (float i = 0; i < invulnerableDurationSeconds; i += invulnerabilityDeltaTime)
         {
             // Alternate between 0 and 1 scale to simulate flashing
@@ -93,8 +92,8 @@ public class PlayerHealthController : MonoBehaviour
             }
             yield return new WaitForSeconds(invulnerabilityDeltaTime);
         }
-        Debug.Log("Player is no longer invincible!");
         isInvulnerable = false;
+        Physics2D.IgnoreLayerCollision(6, 8, false);
         ScaleModelTo(Vector3.one);
     }
 
