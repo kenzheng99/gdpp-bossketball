@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
@@ -9,37 +10,37 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float powerScaleRate;
     [SerializeField] private int lineLength;
 
-    private float launchPower;
-    private Vector3 launchVelocity;
+    private Vector2 launchVelocity;
     private LineRenderer lineRenderer;
+    private bool mouseHeldDown;
     void Start() {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 0;
     }
 
     void Update() {
-        // start charging shot
         if (Input.GetMouseButtonDown(0)) {
-            launchPower = minLaunchPower;
+            mouseHeldDown = true;
         }
-        
-        // while charging shot
-        if (launchPower > 0) {
-            launchPower += powerScaleRate * Time.deltaTime;
-            
-            launchPower = Math.Min(launchPower, maxLaunchPower);
+
+        if (mouseHeldDown) {
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = -Camera.main.transform.position.z;
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            launchVelocity = (mouseWorldPosition - transform.position).normalized * launchPower;
+
+            launchVelocity = (Vector2)(mouseWorldPosition - transform.position) * powerScaleRate;
+            if (launchVelocity.magnitude > maxLaunchPower) {
+                launchVelocity = launchVelocity.normalized * maxLaunchPower;
+            } else if (launchVelocity.magnitude < minLaunchPower) {
+                launchVelocity = launchVelocity.normalized * minLaunchPower;
+            }
             RenderLine(launchVelocity);
         }
-            
-        // shoot ball
+        
         if (Input.GetMouseButtonUp(0)) {
             Shoot();
-            launchPower = 0;
             lineRenderer.positionCount = 0;
+            mouseHeldDown = false;
         }
     }
 
@@ -49,10 +50,11 @@ public class PlayerShooting : MonoBehaviour
     }
 
     private void RenderLine(Vector2 velocity) {
-        lineRenderer.positionCount = lineLength;
+        int adjustedLineLength = (int)(lineLength * velocity.magnitude * 0.01);
+        lineRenderer.positionCount = adjustedLineLength;
         float gravityScale = ballPrefab.GetComponent<Rigidbody2D>().gravityScale;
-        Vector2[] trajectory = Plot(transform.position, velocity, gravityScale, lineLength);
-        Vector3[] positions = new Vector3[lineLength];
+        Vector2[] trajectory = Plot(transform.position, velocity, gravityScale, adjustedLineLength);
+        Vector3[] positions = new Vector3[adjustedLineLength];
         for (int i = 0; i < positions.Length; i++) {
             positions[i] = trajectory[i];
         }
