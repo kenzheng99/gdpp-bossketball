@@ -166,8 +166,9 @@ MonoBehaviour:
   ballPrefab: {fileID: 4962977180733219302, guid: cb5b61d393c9c4f4aacae5031998cf03, type: 3}
   minLaunchPower: 10
   maxLaunchPower: 80
-  powerScaleRate: 2
+  powerScale: 2
   lineLength: 1000
+  cooldownTime: 3
 --- !u!120 &1288237228
 LineRenderer:
   m_ObjectHideFlags: 0

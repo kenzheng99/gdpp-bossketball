@@ -805,9 +805,21 @@ PrefabInstance:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 1168298216}
+    - target: {fileID: 120363016862124402, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
+      propertyPath: lineLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 120363016862124402, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
+      propertyPath: cooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7890406671829373673, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890406671829373676, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
+      propertyPath: movementSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7890406671829373677, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_RootOrder
