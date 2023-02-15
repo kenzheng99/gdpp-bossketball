@@ -50,7 +50,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void RenderLine(Vector2 velocity) {
         lineRenderer.positionCount = lineLength;
-        Vector2[] trajectory = Plot(transform.position, velocity, 1, lineLength);
+        float gravityScale = ballPrefab.GetComponent<Rigidbody2D>().gravityScale;
+        Vector2[] trajectory = Plot(transform.position, velocity, gravityScale, lineLength);
         Vector3[] positions = new Vector3[lineLength];
         for (int i = 0; i < positions.Length; i++) {
             positions[i] = trajectory[i];

@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 4962977180733219302, guid: cb5b61d393c9c4f4aacae5031998cf03, type: 3}
-  minLaunchPower: 1
-  maxLaunchPower: 20
-  powerScaleRate: 15
+  minLaunchPower: 10
+  maxLaunchPower: 50
+  powerScaleRate: 30
   lineLength: 1000
 --- !u!120 &1288237228
 LineRenderer:
