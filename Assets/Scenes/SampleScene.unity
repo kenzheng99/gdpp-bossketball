@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 1513012650}
   - component: {fileID: 1513012649}
   - component: {fileID: 1513012648}
+  - component: {fileID: 1513012651}
   m_Layer: 0
   m_Name: Ortho Camera
   m_TagString: MainCamera
@@ -688,6 +689,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513012651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513012647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376fb6faa9e3240a28bdb1ddc76d2072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToFollow: {fileID: 1539851916}
+  minX: -10
+  maxX: 10
+--- !u!1 &1539851916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7890406671829373673, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
+  m_PrefabInstance: {fileID: 7890406672813188249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1811025191 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5854586210699596950, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
@@ -897,6 +918,18 @@ PrefabInstance:
     - target: {fileID: 8893211758497152151, guid: 6d508f51ed6a7407e82a0f3ed9e8254f, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893211758497152151, guid: 6d508f51ed6a7407e82a0f3ed9e8254f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893211758497152151, guid: 6d508f51ed6a7407e82a0f3ed9e8254f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893211758497152151, guid: 6d508f51ed6a7407e82a0f3ed9e8254f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8893211758497152151, guid: 6d508f51ed6a7407e82a0f3ed9e8254f, type: 3}
       propertyPath: m_LocalPosition.x
