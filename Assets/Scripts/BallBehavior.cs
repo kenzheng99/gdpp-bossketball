@@ -11,9 +11,9 @@ public class BallBehavior : MonoBehaviour {
     private bool hitGround;
     private int destroyTime = 3;
     private Timer despawnTimer;
-
+    [SerializeField] private ParticleSystem ballProjectileParticles;
     private Material ballMaterial;
-    
+   
     private void Start() {
         ballMaterial = GetComponent<MeshRenderer>().material;
     }
@@ -43,6 +43,17 @@ public class BallBehavior : MonoBehaviour {
         if (col.gameObject.CompareTag("Ground")) {
             hitGround = true;
             despawnTimer = new Timer(destroyTime);
+        }
+
+        // when coming in contact with BossProjectile explodes into particles
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            //destroy both the ball and boss projectile
+            Destroy(gameObject);
+            Destroy(col.gameObject);
+
+            //instantiate particles
+            ballProjectileParticles = ParticleSystem.Instantiate(ballProjectileParticles, gameObject.transform.position, Quaternion.identity);
         }
     }
 }

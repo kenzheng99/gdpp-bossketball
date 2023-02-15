@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boss: {fileID: 0}
+  succesfulShotParticles: {fileID: 7843425363746595368, guid: d5d202f1a47c52943bc3312fc6c7b705, type: 3}
 --- !u!1 &6709246616507678363
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class BasketDetection : MonoBehaviour {
     private bool firstCollision;
     private bool enterTop;
     private int finalCollide = 0; // 0:none, 1:upper enter, 2:upper exit, 3:lower enter, 4:lower exit
+    [SerializeField] private ParticleSystem succesfulShotParticles;
 
     public void FinalCollision(int colType) {
         if (inHoopArea) {
@@ -34,9 +35,11 @@ public class BasketDetection : MonoBehaviour {
             inHoopArea = false;
             if (enterTop && finalCollide == 4) {
                 Debug.Log("Score");
-                _boss.BossTakeDamage(20);
                 //boss takes damage
-                // Boss.TakeDamage(20);
+                _boss.BossTakeDamage(5);
+                //instantiate particle effect and destroy ball
+                succesfulShotParticles = ParticleSystem.Instantiate(succesfulShotParticles, this.gameObject.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
             }
             enterTop = false;
         }
