@@ -135,4 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa9b6e0aabf3a840997458f7fa48395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballprojectileparticles: {fileID: 1813884230903247931, guid: 321739b5b737d164b80229671be1fcda, type: 3}
+  ballProjectileParticles: {fileID: 1813884230903247931, guid: 321739b5b737d164b80229671be1fcda, type: 3}
