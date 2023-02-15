@@ -1,11 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "BossStates/IdleState")]
 public class IdleState : BossState {
 
     [SerializeField] private float durationSeconds;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveTime;
     [SerializeField] private float waitTimeSeconds;
     [SerializeField] private Bounds moveBounds;
     
@@ -14,6 +13,7 @@ public class IdleState : BossState {
     private Timer waitTimer;
     private Vector2 targetPosition;
     private bool arrivedAtTargetPosition;
+    private Vector2 currentVelocity;
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("IdleState");
         stateTimer = new Timer(durationSeconds);
@@ -34,13 +34,22 @@ public class IdleState : BossState {
                 targetPosition = PickNewTargetPosition();
                 arrivedAtTargetPosition = false;
             }
-        } else if (Vector2.Distance(boss.transform.position, targetPosition) < 1) {
+        } else if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
             // just arrived at target position
             arrivedAtTargetPosition = true;
             waitTimer = new Timer(waitTimeSeconds);
         } else {
             // move towards target position
-            Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            // linear movement
+            //Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
+            // smooth movement
+            Vector2 newPosition = Vector2.SmoothDamp(
+                boss.transform.position,
+                targetPosition,
+                ref currentVelocity,
+                moveTime
+            );
             boss.transform.position = newPosition;
         }
         

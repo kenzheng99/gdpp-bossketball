@@ -5,7 +5,7 @@ public class SpiralAttackState: BossState {
     
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float postAttackWait;
-    [SerializeField] private float bossMoveSpeed;
+    [SerializeField] private float bossMoveTime;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private int numProjectiles;
     [SerializeField] private int numAttacks;
@@ -17,7 +17,8 @@ public class SpiralAttackState: BossState {
     private Timer fireCoolDown;
     private Timer postAttackWaitTimer;
     private int numFired;
-    
+    private Vector2 currentVelocity;
+
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("SpiralAttackState");
         postAttackWaitTimer = new Timer(postAttackWait);
@@ -31,7 +32,7 @@ public class SpiralAttackState: BossState {
 
     public override void UpdateState(BossStateMachine stateMachine) {
 
-        if (Vector2.Distance(boss.transform.position, targetPosition) < 1) {
+        if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
             // arrived, start attack
             // TODO fix bug with fire cooldown not working properly
             if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
@@ -43,8 +44,10 @@ public class SpiralAttackState: BossState {
             fireCoolDown.Tick(Time.deltaTime);
         }
         else {
-            Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, 
-                targetPosition, bossMoveSpeed * Time.deltaTime);
+            // Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, 
+            //     targetPosition, bossMoveSpeed * Time.deltaTime);
+            Vector2 newPosition = Vector2.SmoothDamp(boss.transform.position, targetPosition, ref currentVelocity,
+                bossMoveTime);
             boss.transform.position = newPosition;
         }
 
