@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     private Timer cooldownTimer;
     void Start() {
         lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 0;
         cooldownTimer = new Timer(0);
     }
 
