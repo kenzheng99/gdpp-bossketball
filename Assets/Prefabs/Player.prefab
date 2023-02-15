@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  jumpForce: 20
+  jumpForce: 30
 --- !u!114 &120363016862124402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,10 +164,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 4962977180733219302, guid: cb5b61d393c9c4f4aacae5031998cf03, type: 3}
-  minLaunchPower: 1
-  maxLaunchPower: 20
-  powerScaleRate: 15
+  minLaunchPower: 10
+  maxLaunchPower: 80
+  powerScale: 2
   lineLength: 1000
+  cooldownTime: 3
 --- !u!120 &1288237228
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -219,23 +220,14 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.31944105
+        time: 0.014492035
+        value: 0.15048048
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.0625
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
