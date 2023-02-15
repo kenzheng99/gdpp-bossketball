@@ -9,7 +9,7 @@ public class IdleState : BossState {
     [SerializeField] private float waitTimeSeconds;
     [SerializeField] private Bounds moveBounds;
     
-    private Rigidbody2D bossRb;
+    private GameObject boss;
     private Timer stateTimer;
     private Timer waitTimer;
     private Vector2 targetPosition;
@@ -18,7 +18,7 @@ public class IdleState : BossState {
         Debug.Log("IdleState");
         stateTimer = new Timer(durationSeconds);
         waitTimer = new Timer(waitTimeSeconds);
-        bossRb = stateMachine.GetComponent<Rigidbody2D>();
+        boss = stateMachine.gameObject;
         
         targetPosition = PickNewTargetPosition();
         arrivedAtTargetPosition = false;
@@ -28,24 +28,20 @@ public class IdleState : BossState {
 
         if (arrivedAtTargetPosition) {
             // waiting at target position
-            bossRb.velocity = Vector2.zero;
+            //bossRb.velocity = Vector2.zero;
             waitTimer.Tick(Time.deltaTime);
             if (waitTimer.Done()) {
                 targetPosition = PickNewTargetPosition();
                 arrivedAtTargetPosition = false;
             }
-        } else if (Vector2.Distance(bossRb.position, targetPosition) < 1) {
+        } else if (Vector2.Distance(boss.transform.position, targetPosition) < 1) {
             // just arrived at target position
             arrivedAtTargetPosition = true;
             waitTimer = new Timer(waitTimeSeconds);
         } else {
             // move towards target position
-            Vector2 velocity = (targetPosition - bossRb.position).normalized * moveSpeed;
-            bossRb.velocity = velocity;
-            
-            // this method was a bit less smooth than setting velocity directly
-            // Vector2 newPosition = Vector2.MoveTowards(bossRb.position, targetPosition, moveSpeed * Time.deltaTime);
-            // bossRb.MovePosition(newPosition);
+            Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            boss.transform.position = newPosition;
         }
         
         // end state if timer done

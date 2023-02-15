@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f0c2dfcf5bd431b84b1893d748b45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 15
   jumpForce: 30
 --- !u!114 &120363016862124402
 MonoBehaviour:
@@ -167,8 +167,8 @@ MonoBehaviour:
   minLaunchPower: 10
   maxLaunchPower: 80
   powerScale: 2
-  lineLength: 1000
-  cooldownTime: 3
+  lineLength: 10
+  cooldownTime: 1
 --- !u!120 &1288237228
 LineRenderer:
   m_ObjectHideFlags: 0
