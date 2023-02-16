@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1768796060642202103}
   - component: {fileID: 416184706333250532}
   - component: {fileID: 468531368820306750}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Hoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5662462305051106294}
   - component: {fileID: 4614630497464648531}
   - component: {fileID: 6677945357746567765}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Rim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 8419183499872977034}
   - component: {fileID: 1311172842802464919}
   - component: {fileID: 2915727426025914555}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: LowerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1948087916584867925}
   - component: {fileID: 8152848332156842166}
   - component: {fileID: 8432420802445714636}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: UpperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
