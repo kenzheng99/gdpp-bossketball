@@ -61,6 +61,10 @@ public class PlayerHealthController : MonoBehaviour
         if (!isInvulnerable)
         {
             health -= damage;
+            if (health <= 0)
+            {
+                
+            }
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
     }
