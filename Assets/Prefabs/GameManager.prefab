@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 0}
+  player: {fileID: 0}
   bossHealthBar: {fileID: 0}
+  playerHealthUI: {fileID: 0}
