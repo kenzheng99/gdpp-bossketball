@@ -5,76 +5,47 @@ using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
-    public int health;
-    public int totalHearts;
-    public bool isInvulnerable = false;
+    public int maxHealth;
 
-    [SerializeField] private Image[] hearts;
-    [SerializeField] private Sprite fullHeart;
-    [SerializeField] private Sprite emptyHeart;
+
     [SerializeField] private float invulnerableDurationSeconds;
     [SerializeField] private float invulnerabilityDeltaTime;
     [SerializeField] private GameObject playerModel;
+    
+    private int health;
+    private bool isInvulnerable = false;
+    private GameManager gameManager;
+    private Vector3 startPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        health = maxHealth;
+        gameManager = GameManager.Instance;
+        startPosition = transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateHealth();
-        if (health > totalHearts)
-        {
-            health = totalHearts;
-        }
-    }
-
-    public void UpdateHealth()
-    {
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (i < health)
-            {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
-
-            if (i < totalHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
-    }
-
-    public void PlayerTakeDamage(int damage)
-    {
-        if (!isInvulnerable)
-        {
+    
+    public void PlayerTakeDamage(int damage) {
+        if (!isInvulnerable) {
             health -= damage;
-            if (health <= 0)
-            {
+            gameManager.UpdatePlayerHealth(health);
+            
+            if (health <= 0) {
                 
             }
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
     }
-    // collide with any projectiles or w the enemy itself
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Enemy"))
-        {
+        if (col.gameObject.CompareTag("Enemy")) {
             PlayerTakeDamage(1);
         }
+    }
+
+    public void ResetPlayer() {
+        health = maxHealth;
+        gameManager.UpdatePlayerHealth(health);
+        transform.position = startPosition;
     }
 
     private IEnumerator BecomeTemporarilyInvulnerable()
@@ -101,8 +72,7 @@ public class PlayerHealthController : MonoBehaviour
         ScaleModelTo(Vector3.one);
     }
 
-    private void ScaleModelTo(Vector3 scale)
-    {
+    private void ScaleModelTo(Vector3 scale) {
         playerModel.transform.localScale = scale;
     }
 }
