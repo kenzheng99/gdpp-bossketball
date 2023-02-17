@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BossStateMachine : MonoBehaviour {
 
@@ -8,9 +9,12 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public SpiralAttackState spiralAttackState;
     [SerializeField] public StationaryState stationaryState;
     [SerializeField] public HomingAttackState homingAttackState;
-    
+
+
+    private BossState[] stateList;
     private BossState currentState;
     void Start() {
+        stateList = new BossState[] {idleState, spiralAttackState, homingAttackState};
         currentState = initialState;
         initialState.EnterState(this);
     }
@@ -23,8 +27,12 @@ public class BossStateMachine : MonoBehaviour {
         currentState.EnterState(this);
     }
 
-    void SwitchToRandomState() {
-        throw new NotImplementedException();
-    }
+    public void SwitchToRandomState() {
+        int randomIndex = Random.Range(0, stateList.Length);
+        while (stateList[randomIndex] == currentState) {
+            randomIndex = Random.Range(0, stateList.Length);
+        }
+        SwitchState(stateList[randomIndex]);
+}
     
 }

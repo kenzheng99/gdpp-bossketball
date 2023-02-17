@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: HomingAttackState
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 419417373ea39da4d9f2326e7da8623a, type: 3}
-  postAttackWait: 5
+  postAttackWait: 1
   bossMoveTime: 0.5
   projectileSpeed: 20
   numProjectiles: 1
-  numAttacks: 8
+  numAttacks: 5
   coolDown: 3
   targetPosition: {x: 0, y: 20}
   randOffSet: 10

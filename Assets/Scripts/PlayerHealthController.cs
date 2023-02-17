@@ -27,10 +27,6 @@ public class PlayerHealthController : MonoBehaviour
         if (!isInvulnerable) {
             health -= damage;
             gameManager.UpdatePlayerHealth(health);
-            
-            if (health <= 0) {
-                
-            }
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
     }
@@ -51,23 +47,22 @@ public class PlayerHealthController : MonoBehaviour
     private IEnumerator BecomeTemporarilyInvulnerable()
     {
         isInvulnerable = true;
+        Debug.Log(isInvulnerable);
         // when invulnerable can go through boss w/o getting hurt
         Physics2D.IgnoreLayerCollision(6, 8, true);
            
         for (float i = 0; i < invulnerableDurationSeconds; i += invulnerabilityDeltaTime)
         {
             // Alternate between 0 and 1 scale to simulate flashing
-            if (playerModel.transform.localScale == Vector3.one)
-            {
+            if (playerModel.transform.localScale == Vector3.one) {
                 ScaleModelTo(Vector3.zero);
-            }
-            else
-            {
+            } else {
                 ScaleModelTo(Vector3.one);
             }
             yield return new WaitForSeconds(invulnerabilityDeltaTime);
         }
         isInvulnerable = false;
+        Debug.Log(isInvulnerable);
         Physics2D.IgnoreLayerCollision(6, 8, false);
         ScaleModelTo(Vector3.one);
     }

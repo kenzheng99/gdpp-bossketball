@@ -85,6 +85,7 @@ public class HomingAttackState: BossState {
         }
         if (postAttackWaitTimer.Done()) {
             // stateMachine.SwitchState(stateMachine.idleState);
+            stateMachine.SwitchToRandomState();
         }
     }
 

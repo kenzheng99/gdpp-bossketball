@@ -50,7 +50,7 @@ public class IdleState : BossState {
         // end state if timer done
         stateTimer.Tick(Time.deltaTime);
         if (stateTimer.Done()) {
-            // stateMachine.SwitchState(stateMachine.spiralAttackState);
+            stateMachine.SwitchToRandomState();
         }
     }
 

@@ -56,7 +56,7 @@ public class SpiralAttackState: BossState {
             postAttackWaitTimer.Tick(Time.deltaTime);
         }
         if (postAttackWaitTimer.Done()) {
-            stateMachine.SwitchState(stateMachine.idleState);
+            stateMachine.SwitchToRandomState();
         }
     }
 
