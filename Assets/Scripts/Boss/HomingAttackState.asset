@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a262fbcea845458ec32c62e37859d8, type: 3}
-  m_Name: SpiralAttackState
+  m_Script: {fileID: 11500000, guid: cea6f97abaf44064b9230582be135870, type: 3}
+  m_Name: HomingAttackState
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 419417373ea39da4d9f2326e7da8623a, type: 3}
   postAttackWait: 5
   bossMoveTime: 0.5
-  projectileSpeed: 14
-  numProjectiles: 15
-  numAttacks: 4
-  coolDown: 0.1
+  projectileSpeed: 20
+  numProjectiles: 1
+  numAttacks: 8
+  coolDown: 3
   targetPosition: {x: 0, y: 20}
+  randOffSet: 10
+  trajectoryDelay: 0.17
