@@ -48,3 +48,5 @@ MonoBehaviour:
   player: {fileID: 0}
   bossHealthBar: {fileID: 0}
   playerHealthUI: {fileID: 0}
+  winScreen: {fileID: 0}
+  gameOverScreen: {fileID: 0}
