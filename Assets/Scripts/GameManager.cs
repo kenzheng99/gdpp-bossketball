@@ -2,50 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState {
+    PLAYING, 
+    WIN, 
+    GAMEOVER
+};
 public class GameManager : MonoBehaviour
 {
-    public static GameManager S; // set up the singleton
-    public enum GameState { menu, getReady, playing, oops, gameOver };
-    public GameState gameState = GameState.playing;
+    private static GameManager _instance; // set up the singleton
+    private GameState currentState = GameState.PLAYING;
+    
+    // Objects
+    [SerializeField] private Boss boss;
+    
+    // UI elements
+    [SerializeField] private BossHealthBar bossHealthBar;
 
-    private void Awake()
-    {
-        if (GameManager.S)
-        {
-            // game manager exists, destroy this object
-            Destroy(this.gameObject);
+    public static GameManager Instance {
+        get {
+            if (_instance == null) {
+                _instance = FindObjectOfType<GameManager>();
+            }
+
+            return _instance;
         }
-        else
-        {
-            S = this;
-        }
-    }
-    void Start()
-    {
-        
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
+            QuitGame();
         }
-        else if (gameState == GameState.playing)
-        {
 
-        }
-        
-        else if (gameState == GameState.gameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                StartANewGame();
-            }
+        if (Input.GetKeyDown(KeyCode.R)) {
+            ResetGame();
         }
     }
 
-    void StartANewGame()
-    {
+    public void UpdateBossHealth(int health) {
+        bossHealthBar.SetHealth(health);
+    }
 
+    public void PlayerDamaged() {
+    }
+    void ResetGame() {
+        boss.ResetBoss();
+    }
+
+    void QuitGame() {
+        Application.Quit();
     }
 }

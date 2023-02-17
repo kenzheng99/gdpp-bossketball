@@ -1683,7 +1683,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.115849495, y: 437696}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.1633244
 --- !u!114 &9137625031940689171
@@ -1699,8 +1699,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 0}
 --- !u!114 &5279727204240691658
 MonoBehaviour:
   m_ObjectHideFlags: 0

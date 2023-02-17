@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 685647568}
+    - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+      propertyPath: bossHealthBar
+      value: 
+      objectReference: {fileID: 1811025191}
     - target: {fileID: 3817528686123173085, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -189,6 +197,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &685647568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9137625031940689171, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
+  m_PrefabInstance: {fileID: 7648132985162396706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f1b01ccb8d44e35aad9d16d70d156c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &705507993
@@ -753,18 +772,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6003019295160610, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 196744788628854959, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4272339672222352168, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5223206388999540198, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -813,14 +820,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5248892321922214422, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9137625031940689171, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1811025191}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
 --- !u!1001 &7890406672813188249
