@@ -7,41 +7,26 @@ using UnityEngine;
 public class BasketDetection : MonoBehaviour {
 
     public Boss _boss;
-    private bool inHoopArea;
-    private bool firstCollision;
-    private bool enterTop;
-    private int finalCollide = 0; // 0:none, 1:upper enter, 2:upper exit, 3:lower enter, 4:lower exit
+    private float enterY;
     [SerializeField] private ParticleSystem succesfulShotParticles;
-
-    public void FinalCollision(int colType) {
-        if (inHoopArea) {
-            finalCollide = colType;
-            if (!enterTop && firstCollision && finalCollide == 1) {
-                enterTop = true;
-            }
-            firstCollision = false;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Ball")) {
-            firstCollision = true;
-            inHoopArea = true;
+            enterY = col.gameObject.transform.position.y;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ball")) {
-            inHoopArea = false;
-            if (enterTop && finalCollide == 4) {
+            if (other.gameObject.transform.position.y < enterY) {
                 Debug.Log("Score");
+                
                 //boss takes damage
                 _boss.BossTakeDamage(5);
                 //instantiate particle effect and destroy ball
                 succesfulShotParticles = ParticleSystem.Instantiate(succesfulShotParticles, this.gameObject.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
             }
-            enterTop = false;
         }
     }
 }
