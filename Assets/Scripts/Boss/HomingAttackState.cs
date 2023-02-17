@@ -15,6 +15,7 @@ public class HomingAttackState: BossState {
     [SerializeField] private Vector2 targetPosition;
     [SerializeField] private float randOffSet;
     [SerializeField] private float trajectoryDelay;
+    [SerializeField] private Bounds moveBounds;
 
     private GameObject boss;
     private Vector3 fireDir;
@@ -48,7 +49,6 @@ public class HomingAttackState: BossState {
             // arrived, start attack
             if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
                 projectiles.Add(FireProjectile(fireDir));
-                // fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
                 fireCoolDown = new Timer(coolDown);
                 numFired++;
             }
@@ -61,13 +61,18 @@ public class HomingAttackState: BossState {
             boss.transform.position = newPosition;
         }
         
+        // make homing
         foreach (var p in projectiles) {
             if (p != null) {
                 if (trajectoryTimer.Done()) {
                     Vector3 offSet = new Vector3(Random.Range(-randOffSet, randOffSet), 
                         Random.Range(-randOffSet, randOffSet), 0);
-                    p.GetComponent<Projectile>().SetTrajectory(playerTr.position -
-                        p.transform.position + offSet,
+                    Vector3 target = playerTr.position -
+                        p.transform.position + offSet;
+                    if (p.transform.position.y < 0 && target.y < 0) {
+                        target.y *= -1;
+                    }
+                    p.GetComponent<Projectile>().SetTrajectory(target,
                         projectileSpeed);
                 }
             }
