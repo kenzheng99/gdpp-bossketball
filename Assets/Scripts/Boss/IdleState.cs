@@ -1,62 +1,56 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "BossStates/IdleState")]
 public class IdleState : BossState {
 
     [SerializeField] private float durationSeconds;
-    [SerializeField] private float moveTime;
     [SerializeField] private float waitTimeSeconds;
     [SerializeField] private Bounds moveBounds;
+    [SerializeField] private float directionTimeSeconds;
+    [SerializeField] private float moveDirectionDelta;
+    [SerializeField] private float moveSpeed;
     
     private GameObject boss;
     private Timer stateTimer;
-    private Timer waitTimer;
-    private Vector2 targetPosition;
-    private bool arrivedAtTargetPosition;
-    private Vector2 currentVelocity;
+    private Timer directionTimer;
+
+    private Vector3 moveDir;
+    private float dirDelta;
+    
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("IdleState");
         stateTimer = new Timer(durationSeconds);
-        waitTimer = new Timer(waitTimeSeconds);
+        directionTimer = new Timer(directionTimeSeconds);
         boss = stateMachine.gameObject;
         
-        targetPosition = PickNewTargetPosition();
-        arrivedAtTargetPosition = false;
+        moveDir = Vector3.down;
+        dirDelta = moveDirectionDelta;
     }
 
     public override void UpdateState(BossStateMachine stateMachine) {
 
-        if (arrivedAtTargetPosition) {
-            // waiting at target position
-            //bossRb.velocity = Vector2.zero;
-            waitTimer.Tick(Time.deltaTime);
-            if (waitTimer.Done()) {
-                targetPosition = PickNewTargetPosition();
-                arrivedAtTargetPosition = false;
-            }
-        } else if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
-            // just arrived at target position
-            arrivedAtTargetPosition = true;
-            waitTimer = new Timer(waitTimeSeconds);
-        } else {
-            // move towards target position
-            // linear movement
-            //Vector2 newPosition = Vector2.MoveTowards(boss.transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            
-            // smooth movement
-            Vector2 newPosition = Vector2.SmoothDamp(
-                boss.transform.position,
-                targetPosition,
-                ref currentVelocity,
-                moveTime
-            );
-            boss.transform.position = newPosition;
+        if (directionTimer.Done()) {
+            dirDelta = Random.Range(-moveDirectionDelta, moveDirectionDelta);
+            directionTimer = new Timer(waitTimeSeconds);
         }
+
+        var bossPos = boss.transform.position;
+        if (Math.Abs(bossPos.x) > moveBounds.max.x) {
+            moveDir.x *= -1;
+        } else if (bossPos.y > moveBounds.max.y || bossPos.y < moveBounds.min.y) {
+            moveDir.y *= -1;
+        }
+        
+        moveDir = Quaternion.Euler(0, 0, dirDelta) * moveDir;
+        boss.transform.Translate(moveSpeed * Time.deltaTime * moveDir);
+        directionTimer.Tick(Time.deltaTime);
         
         // end state if timer done
         stateTimer.Tick(Time.deltaTime);
         if (stateTimer.Done()) {
-            stateMachine.SwitchState(stateMachine.spiralAttackState);
+            // stateMachine.SwitchState(stateMachine.spiralAttackState);
         }
     }
 
