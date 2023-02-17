@@ -6,6 +6,7 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public BossState initialState;
     [SerializeField] public IdleState idleState;
     [SerializeField] public SpiralAttackState spiralAttackState;
+    [SerializeField] public StationaryState stationaryState;
     
     private BossState currentState;
     void Start() {

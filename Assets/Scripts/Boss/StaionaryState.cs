@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "BossStates/SpiralAttackState")]
-public class SpiralAttackState: BossState {
+public class StationaryState: BossState {
     
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float postAttackWait;
