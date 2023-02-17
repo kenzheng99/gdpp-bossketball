@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1768796060642202103}
   - component: {fileID: 416184706333250532}
   - component: {fileID: 468531368820306750}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Hoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5662462305051106294}
   - component: {fileID: 4614630497464648531}
   - component: {fileID: 6677945357746567765}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Rim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
