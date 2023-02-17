@@ -9,13 +9,15 @@ using Debug = UnityEngine.Debug;
 
 public class BallBehavior : MonoBehaviour {
     private bool hitGround;
-    private int destroyTime = 3;
+    private int destroyTime = 2;
     private Timer despawnTimer;
     [SerializeField] private ParticleSystem ballProjectileParticles;
-    private Material ballMaterial;
-   
+    private Material[] ballMaterials;
+    [SerializeField] private GameObject ballModel;
+
+
     private void Start() {
-        ballMaterial = GetComponent<MeshRenderer>().material;
+        ballMaterials = ballModel.GetComponent<MeshRenderer>().materials;
     }
 
     private void Update()
@@ -28,17 +30,21 @@ public class BallBehavior : MonoBehaviour {
             despawnTimer.Tick(Time.deltaTime);
 
             // decrease ball material alpha to fade it
-            var ballColor = ballMaterial.color;
-            ballColor.a -= Time.deltaTime * (1/(float)destroyTime);
-            ballMaterial.color = ballColor;
+
+            var ballColor0 = ballMaterials[0].color;
+            var ballColor1 = ballMaterials[1].color;
+            ballColor0.a -= Time.deltaTime * (1/(float)destroyTime);
+            ballColor1.a -= Time.deltaTime * (1/(float)destroyTime);
+            ballMaterials[0].color = ballColor0;
+            ballMaterials[1].color = ballColor0;
         }
 
         // case to destroy balls that fall off the map
         if (gameObject.transform.position.y < -20) {
             Destroy(gameObject);
         }
-    }
 
+    }
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
             hitGround = true;

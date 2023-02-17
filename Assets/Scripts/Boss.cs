@@ -1,35 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public BossHealthBar healthBar;
+    [SerializeField] private int maxHealth = 100;
+    private int currentHealth;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private GameManager gameManager;
+    private Vector3 startingPosition;
+
+    void Start() {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        
+        gameManager = GameManager.Instance;
+        startingPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //placeholder to test health bar
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
+        //TODO delete this, placeholder to test health bar
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             BossTakeDamage(10);
         }
     }
 
-    //call this function with hoop detection when a shot is succesfully made
     public void BossTakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        gameManager.UpdateBossHealth(currentHealth);
+    }
+
+    public void ResetBoss() {
+        currentHealth = maxHealth;
+        gameManager.UpdateBossHealth(currentHealth);
+        transform.position = startingPosition;
+        BossStateMachine stateMachine = GetComponent<BossStateMachine>();
+        stateMachine.SwitchState(stateMachine.initialState);
     }
 }
