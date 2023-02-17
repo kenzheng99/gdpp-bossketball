@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
