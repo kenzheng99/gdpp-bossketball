@@ -1711,9 +1711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8093bbb1ceb994d89a65f9695249fe57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
+  initialState: {fileID: 11400000, guid: 329782ca8a2e62c458f537b68d056eb8, type: 2}
   idleState: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
   spiralAttackState: {fileID: 11400000, guid: 7892824e594d84b24beefdebc3c25a42, type: 2}
+  stationaryState: {fileID: 11400000, guid: 329782ca8a2e62c458f537b68d056eb8, type: 2}
 --- !u!1 &5892054575230144844
 GameObject:
   m_ObjectHideFlags: 0

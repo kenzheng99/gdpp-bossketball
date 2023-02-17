@@ -8,6 +8,12 @@ public class Projectile : MonoBehaviour {
     private float levelHeight = 50; // set from game manager
     private float projectileSpeed;
 
+    private Timer trajectoryTimer;
+
+    private void Start() {
+        trajectoryTimer = new Timer(0.1f);
+    }
+
     private void Update() {
         Transform projectileTransform = gameObject.transform;
         projectileTransform.Translate(Time.deltaTime*projectileSpeed*targetPos.normalized);
@@ -15,6 +21,7 @@ public class Projectile : MonoBehaviour {
             Math.Abs(projectileTransform.position.y) > levelHeight) {
             Destroy(gameObject);
         }
+        trajectoryTimer.Tick(Time.deltaTime);
     }
 
     public void SetTrajectory(Vector3 target, float speed) {
