@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
     
     // Objects
     [SerializeField] private Boss boss;
+    [SerializeField] private PlayerHealthController player;
     
     // UI elements
     [SerializeField] private BossHealthBar bossHealthBar;
+    [SerializeField] private PlayerHealthUI playerHealthUI;
 
     public static GameManager Instance {
         get {
@@ -43,10 +45,12 @@ public class GameManager : MonoBehaviour
         bossHealthBar.SetHealth(health);
     }
 
-    public void PlayerDamaged() {
+    public void UpdatePlayerHealth(int health) {
+        playerHealthUI.SetHealth(health);
     }
     void ResetGame() {
         boss.ResetBoss();
+        player.ResetPlayer();
     }
 
     void QuitGame() {
