@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     // UI elements
     [SerializeField] private BossHealthBar bossHealthBar;
     [SerializeField] private PlayerHealthUI playerHealthUI;
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject gameOverScreen;
 
     public static GameManager Instance {
         get {
@@ -28,6 +30,11 @@ public class GameManager : MonoBehaviour
 
             return _instance;
         }
+    }
+    
+    void Start() {
+        winScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
 
     void Update()
@@ -43,17 +50,37 @@ public class GameManager : MonoBehaviour
 
     public void UpdateBossHealth(int health) {
         bossHealthBar.SetHealth(health);
+        if (health <= 0) {
+            Win();
+        }
     }
 
     public void UpdatePlayerHealth(int health) {
         playerHealthUI.SetHealth(health);
+        if (health <= 0) {
+            GameOver();
+        }
     }
-    void ResetGame() {
+    
+    
+    public void ResetGame() {
+        gameOverScreen.SetActive(false);
+        winScreen.SetActive(false);
         boss.ResetBoss();
         player.ResetPlayer();
     }
 
-    void QuitGame() {
+    public void QuitGame() {
         Application.Quit();
+    }
+
+    private void GameOver() {
+        currentState = GameState.GAMEOVER;
+        gameOverScreen.SetActive(true);
+    }
+
+    private void Win() {
+        currentState = GameState.WIN;
+        winScreen.SetActive(true);
     }
 }

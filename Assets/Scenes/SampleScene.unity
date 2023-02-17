@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c9f4d4187e1e84bd3a4d99878319b346, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -150,9 +150,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1539851927}
     - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1556538212}
+    - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
       propertyPath: bossHealthBar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1581122791}
     - target: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
       propertyPath: playerHealthUI
       value: 
@@ -207,15 +215,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+<<<<<<< HEAD
 --- !u!114 &445765255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2408899222082624368, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
   m_PrefabInstance: {fileID: 883018337}
+=======
+--- !u!114 &428695967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1703748016132687225, guid: 0fc8ea0feb8a74d1597fcea6e384f236, type: 3}
+  m_PrefabInstance: {fileID: 428695966}
+>>>>>>> 52ce05d (add start, win, and game over screens)
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 6740443640160447f82d18e4e31f540c, type: 3}
+>>>>>>> 52ce05d (add start, win, and game over screens)
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &685647568 stripped
@@ -330,6 +349,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 1998955855, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: fullHeart
       value: 
@@ -378,6 +398,124 @@ PrefabInstance:
       propertyPath: hearts.Array.data[9]
       value: 
       objectReference: {fileID: 445765255}
+=======
+    - target: {fileID: 663416083018331574, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128709113967084847, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -89
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140102420216162270, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 428695967}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400660041907168281, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112694698552114294, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_Name
+      value: ButtonText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305067249752813829, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_Name
+      value: RetryButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831901607272834997, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831901607272834997, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 428695967}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202014630490084240, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 428695967}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6273115116521883783, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565512848223069188, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+>>>>>>> 52ce05d (add start, win, and game over screens)
     - target: {fileID: 7565512848223069191, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -478,6 +616,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 7565512848476703276, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -501,6 +640,47 @@ PrefabInstance:
     - target: {fileID: 7565512849719104345, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00036621094
+=======
+    - target: {fileID: 8541360528254562982, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -194
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630356147463517435, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630356147463517435, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 428695967}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146172644210706005, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+>>>>>>> 52ce05d (add start, win, and game over screens)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
@@ -588,6 +768,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &1173641617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6256007300451676949, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
@@ -599,6 +780,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+--- !u!1 &1075237760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075237763}
+  - component: {fileID: 1075237762}
+  - component: {fileID: 1075237761}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1075237761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075237760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1075237762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075237760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1075237763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075237760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 52ce05d (add start, win, and game over screens)
 --- !u!1 &1208376207
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +1050,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d5a030412184e259605537c25cca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!114 &1754992613 stripped
+=======
+--- !u!1 &1556538212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 663416083018331574, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+  m_PrefabInstance: {fileID: 883018337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1581122791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3140102420216162270, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+  m_PrefabInstance: {fileID: 883018337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1811025191 stripped
+>>>>>>> 52ce05d (add start, win, and game over screens)
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3734383197590790652, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
   m_PrefabInstance: {fileID: 883018337}
