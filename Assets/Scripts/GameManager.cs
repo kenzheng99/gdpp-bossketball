@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         
         boss = Instantiate(bossPrefab, bossStartPosition, Quaternion.identity);
         player.ResetPlayer();
+        Time.timeScale = 1;
     }
 
     public void QuitGame() {
@@ -87,10 +88,12 @@ public class GameManager : MonoBehaviour
     private void GameOver() {
         currentState = GameState.GAMEOVER;
         gameOverScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void Win() {
         currentState = GameState.WIN;
         winScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 }
