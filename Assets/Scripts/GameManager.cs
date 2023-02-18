@@ -71,6 +71,11 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
         winScreen.SetActive(false);
         Destroy(boss.gameObject);
+        GameObject[] bossProjectiles = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject projectile in bossProjectiles) {
+            Destroy(projectile);
+        }
+        
         boss = Instantiate(bossPrefab, bossStartPosition, Quaternion.identity);
         player.ResetPlayer();
     }

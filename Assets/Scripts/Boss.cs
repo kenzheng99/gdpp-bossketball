@@ -9,8 +9,10 @@ public class Boss : MonoBehaviour
     private Vector3 startingPosition;
 
     void Start() {
-        currentHealth = maxHealth;
         gameManager = GameManager.Instance;
+        
+        currentHealth = maxHealth;
+        gameManager.UpdateBossHealth(currentHealth);
         startingPosition = transform.position;
     }
 
