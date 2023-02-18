@@ -152,10 +152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 15
   jumpForce: 30
-  dashVelocity: 50
-  dashTime: 0.15
+  dashVelocity: 42.5
+  dashTime: 0.225
   dashCooldown: 1
-  dashCharges: 1
+  _playerHealthController: {fileID: 1504030542}
 --- !u!114 &120363016862124402
 MonoBehaviour:
   m_ObjectHideFlags: 0

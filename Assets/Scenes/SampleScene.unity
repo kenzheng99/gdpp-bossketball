@@ -913,26 +913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1539851926, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7890406671829373673, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7890406671829373676, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: dashTime
-      value: 0.225
-      objectReference: {fileID: 0}
-    - target: {fileID: 7890406671829373676, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: dashVelocity
-      value: 42.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7890406671829373676, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: _playerHealthController
-      value: 
-      objectReference: {fileID: 1539851927}
     - target: {fileID: 7890406671829373677, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_RootOrder
       value: 5
