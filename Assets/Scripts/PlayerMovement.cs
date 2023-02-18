@@ -68,6 +68,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             dashingDir = new Vector2(transform.localScale.x, 0);
         }
+        
+        // face towards dashing direction
+        float direction = dashingDir.x > 0 ? 1 : -1;
+        Vector3 newScale = transform.localScale;
+        newScale.x = direction;
+        transform.localScale = newScale;
+        
+        anim.SetTrigger("dashTrigger");
         StartCoroutine(StopDashing());
     }
 
