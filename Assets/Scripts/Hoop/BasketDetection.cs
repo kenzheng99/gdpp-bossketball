@@ -8,7 +8,7 @@ public class BasketDetection : MonoBehaviour {
 
     public Boss _boss;
     private float enterY;
-    [SerializeField] private ParticleSystem succesfulShotParticles;
+    public ParticleSystem succesfulShotParticles;
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Ball")) {
@@ -24,9 +24,19 @@ public class BasketDetection : MonoBehaviour {
                 //boss takes damage
                 _boss.BossTakeDamage(5);
                 //instantiate particle effect and destroy ball
-                succesfulShotParticles = ParticleSystem.Instantiate(succesfulShotParticles, this.gameObject.transform.position, Quaternion.identity);
+                var particleEmission = succesfulShotParticles.emission;
+                var particleDuration = succesfulShotParticles.duration;
+                particleEmission.enabled = true;
+                succesfulShotParticles.Play();
                 Destroy(other.gameObject);
+                Invoke(nameof(StopParticle), particleDuration-1);
             }
         }
+    }
+    void StopParticle()
+    {
+        var particleEmission = succesfulShotParticles.emission;
+        particleEmission.enabled = false;
+        succesfulShotParticles.Stop();
     }
 }
