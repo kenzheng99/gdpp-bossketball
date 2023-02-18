@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float dashVelocity;
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCooldown;
-    [SerializeField] private int dashCharges = 1;
+    [SerializeField] private PlayerHealthController _playerHealthController;
     private Vector2 dashingDir;
     private bool isDashing;
     private bool canDash = true;
@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour {
         var dashInput = Input.GetButtonDown("Dash");
         if (dashInput && canDash)
         {
+            Physics2D.IgnoreLayerCollision(6, 8, true);
+            Physics2D.IgnoreLayerCollision(6, 9, true);
             Dash();
         }
 
@@ -49,15 +51,14 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (touchingFloor)
         {
-            dashCharges = 1;
             canDash = true;
-            // StartCoroutine(DashCooldown());
         }
     }
 
     private void Dash()
     {
         isDashing = true;
+        
         canDash = false;
         trailRenderer.emitting = true;
         dashingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -73,7 +74,8 @@ public class PlayerMovement : MonoBehaviour {
         yield return new WaitForSeconds(dashTime);
         trailRenderer.emitting = false;
         isDashing = false;
-        dashCharges -= 1;
+        Physics2D.IgnoreLayerCollision(6, 8, false);
+        Physics2D.IgnoreLayerCollision(6, 9, false);
     }
 
     private void Move(float inputX) {
