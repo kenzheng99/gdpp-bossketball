@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float maxLaunchPower;
     [SerializeField] private float powerScale;
     [SerializeField] private int lineLength;
-    [SerializeField] private int cooldownTime;
+    [SerializeField] private float cooldownTime;
 
     private Vector2 launchVelocity;
     private LineRenderer lineRenderer;
