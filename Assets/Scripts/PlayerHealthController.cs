@@ -25,9 +25,14 @@ public class PlayerHealthController : MonoBehaviour
         anim = playerModel.GetComponent<Animator>();
     }
     
-    public void PlayerTakeDamage(int damage) {
-        if (!isInvulnerable) {
-            health -= damage;
+    private void PlayerTakeDamage(int damage) {
+        if (isInvulnerable) {
+            return;
+        }
+        health -= damage;
+        if (health <= 0) {
+            anim.SetTrigger("deathTrigger");
+        } else {
             gameManager.UpdatePlayerHealth(health);
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
