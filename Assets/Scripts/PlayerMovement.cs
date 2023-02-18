@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Animator anim;
 
     private Rigidbody2D rb;
     private bool touchingFloor;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCooldown;
     [SerializeField] private PlayerHealthController _playerHealthController;
+    
     private Vector2 dashingDir;
     private bool isDashing;
     private bool canDash = true;
@@ -26,6 +28,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
+        if (GameManager.Instance.CurrentState == GameState.PLAYER_DEAD) {
+            return;
+        }
+        
         float inputX = Input.GetAxisRaw("Horizontal");
         Move(inputX);
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -66,6 +72,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             dashingDir = new Vector2(transform.localScale.x, 0);
         }
+        
+        // face towards dashing direction
+        float direction = dashingDir.x > 0 ? 1 : -1;
+        Vector3 newScale = transform.localScale;
+        newScale.x = direction;
+        transform.localScale = newScale;
+        
+        anim.SetTrigger("dashTrigger");
         StartCoroutine(StopDashing());
     }
 
@@ -79,10 +93,22 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move(float inputX) {
+        if (inputX == 0) { // stopped
+            anim.SetBool("isRunning", false);
+        } else { // running
+            if (touchingFloor) {
+                anim.SetBool("isRunning", true);
+                float direction = inputX > 0 ? 1 : -1;
+                Vector3 newScale = transform.localScale;
+                newScale.x = direction;
+                transform.localScale = newScale;
+            }
+        }
         rb.velocity = new Vector2(inputX * movementSpeed, rb.velocity.y);
     }
 
     private void Jump() {
+        anim.SetTrigger("jumpTrigger");
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 

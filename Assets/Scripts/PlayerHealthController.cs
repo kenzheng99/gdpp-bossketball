@@ -16,17 +16,25 @@ public class PlayerHealthController : MonoBehaviour
     private bool isInvulnerable = false;
     private GameManager gameManager;
     private Vector3 startPosition;
+    private Animator anim;
 
     void Start() {
         health = maxHealth;
         gameManager = GameManager.Instance;
         startPosition = transform.position;
+        anim = playerModel.GetComponent<Animator>();
     }
     
-    public void PlayerTakeDamage(int damage) {
-        if (!isInvulnerable) {
-            health -= damage;
-            gameManager.UpdatePlayerHealth(health);
+    private void PlayerTakeDamage(int damage) {
+        if (isInvulnerable) {
+            return;
+        }
+        health -= damage;
+        gameManager.UpdatePlayerHealth(health);
+        
+        if (health <= 0) {
+            anim.SetTrigger("deathTrigger");
+        } else {
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
     }
@@ -35,6 +43,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy")) {
             PlayerTakeDamage(1);
+            anim.SetTrigger("getHitTrigger");
         }
     }
 

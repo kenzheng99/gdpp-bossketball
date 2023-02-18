@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameState {
+    BEFORE_BATTLE,
     PLAYING, 
+    PLAYER_DEAD,
+    BOSS_DEAD,
     WIN, 
-    GAMEOVER
+    GAME_OVER
 };
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance; // set up the singleton
-    private GameState currentState = GameState.PLAYING;
+
+    public GameState CurrentState { get; private set; }
     
     // Objects
     [SerializeField] private Boss boss;
@@ -64,7 +68,9 @@ public class GameManager : MonoBehaviour
     public void UpdatePlayerHealth(int health) {
         playerHealthUI.SetHealth(health);
         if (health <= 0) {
-            GameOver();
+            CurrentState = GameState.PLAYER_DEAD;
+            Debug.Log("player dead");
+            StartCoroutine(GameOver());
         }
     }
     
@@ -87,14 +93,16 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void GameOver() {
-        currentState = GameState.GAMEOVER;
+    private IEnumerator GameOver() {
+        yield return new WaitForSeconds(3);
+        Debug.Log("game over");
+        CurrentState = GameState.GAME_OVER;
         gameOverScreen.SetActive(true);
         Time.timeScale = 0;
     }
 
     private void Win() {
-        currentState = GameState.WIN;
+        CurrentState = GameState.WIN;
         winScreen.SetActive(true);
         Time.timeScale = 0;
     }
