@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
+        if (GameManager.Instance.CurrentState == GameState.PLAYER_DEAD) {
+            return;
+        }
+        
         float inputX = Input.GetAxisRaw("Horizontal");
         Move(inputX);
         if (Input.GetKeyDown(KeyCode.Space)) {

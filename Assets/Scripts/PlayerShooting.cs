@@ -21,6 +21,9 @@ public class PlayerShooting : MonoBehaviour
     }
 
     void Update() {
+        if (GameManager.Instance.CurrentState == GameState.PLAYER_DEAD) {
+            return;
+        }
         if (Input.GetMouseButtonDown(0)) {
             mouseHeldDown = true;
         }

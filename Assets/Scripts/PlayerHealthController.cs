@@ -30,10 +30,11 @@ public class PlayerHealthController : MonoBehaviour
             return;
         }
         health -= damage;
+        gameManager.UpdatePlayerHealth(health);
+        
         if (health <= 0) {
             anim.SetTrigger("deathTrigger");
         } else {
-            gameManager.UpdatePlayerHealth(health);
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }
     }

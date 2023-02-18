@@ -19,6 +19,9 @@ public class BossStateMachine : MonoBehaviour {
         initialState.EnterState(this);
     }
     void Update() {
+        if (GameManager.Instance.CurrentState == GameState.PLAYER_DEAD) {
+            return;
+        }
         currentState.UpdateState(this);
     }
 
