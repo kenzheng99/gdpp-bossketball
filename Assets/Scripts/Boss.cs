@@ -37,4 +37,8 @@ public class Boss : MonoBehaviour
         BossStateMachine stateMachine = GetComponent<BossStateMachine>();
         stateMachine.SwitchState(stateMachine.initialState);
     }
+
+    public int GetMaxHealth() {
+        return maxHealth;
+    }
 }

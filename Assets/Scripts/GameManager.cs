@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         winScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         bossStartPosition = boss.transform.position;
+        bossHealthBar.SetMaxHealth(boss.GetMaxHealth());
+        bossHealthBar.SetHealth(boss.GetMaxHealth());
     }
 
     void Update()
