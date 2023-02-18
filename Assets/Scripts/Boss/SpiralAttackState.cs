@@ -28,7 +28,7 @@ public class SpiralAttackState: BossState {
         boss = stateMachine.gameObject;
         
         numFired = 0;
-        fireDir = Vector3.down;
+        fireDir = Quaternion.Euler(0, 0, Random.Range(0,45)) * Vector3.down;;
     }
 
     public override void UpdateState(BossStateMachine stateMachine) {
@@ -36,7 +36,11 @@ public class SpiralAttackState: BossState {
         if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
             // arrived, start attack
             // TODO fix bug with fire cooldown not working properly
+
             if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
+                if (numFired % numProjectiles == 0) {
+                    fireDir = Quaternion.Euler(0, 0, Random.Range(0,50)) * fireDir;
+                }
                 FireProjectile(fireDir);
                 fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
                 fireCoolDown = new Timer(coolDown);
