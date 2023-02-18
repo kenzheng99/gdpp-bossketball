@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     // Objects
     [SerializeField] private Boss boss;
+    [SerializeField] private Boss bossPrefab;
     [SerializeField] private PlayerHealthController player;
     
     // UI elements
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerHealthUI playerHealthUI;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject gameOverScreen;
+
+    private Vector3 bossStartPosition;
 
     public static GameManager Instance {
         get {
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
     void Start() {
         winScreen.SetActive(false);
         gameOverScreen.SetActive(false);
+        bossStartPosition = boss.transform.position;
     }
 
     void Update()
@@ -66,7 +70,13 @@ public class GameManager : MonoBehaviour
     public void ResetGame() {
         gameOverScreen.SetActive(false);
         winScreen.SetActive(false);
-        boss.ResetBoss();
+        Destroy(boss.gameObject);
+        GameObject[] bossProjectiles = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject projectile in bossProjectiles) {
+            Destroy(projectile);
+        }
+        
+        boss = Instantiate(bossPrefab, bossStartPosition, Quaternion.identity);
         player.ResetPlayer();
     }
 
