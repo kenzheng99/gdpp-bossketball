@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float powerScale;
     [SerializeField] private int lineLength;
     [SerializeField] private float cooldownTime;
+    [SerializeField] private Animator anim;
 
     private Vector2 launchVelocity;
     private LineRenderer lineRenderer;
@@ -51,6 +52,13 @@ public class PlayerShooting : MonoBehaviour
     }
 
     void Shoot() {
+        anim.SetTrigger("throwTrigger");
+        // face towards shooting direction
+        float direction = launchVelocity.x > 0 ? 1 : -1;
+        Vector3 newScale = transform.localScale;
+        newScale.x = direction;
+        transform.localScale = newScale;
+        // instantiate ball
         GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation);
         ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(launchVelocity.x, launchVelocity.y), ForceMode2D.Impulse);
     }

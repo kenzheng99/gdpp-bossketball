@@ -84,16 +84,19 @@ public class PlayerMovement : MonoBehaviour {
         if (inputX == 0) { // stopped
             anim.SetBool("isRunning", false);
         } else { // running
-            float direction = inputX > 0 ? 1 : -1;
-            Vector3 newScale = transform.localScale;
-            newScale.x = direction;
-            transform.localScale = newScale;
-            anim.SetBool("isRunning", true);
+            if (touchingFloor) {
+                anim.SetBool("isRunning", true);
+                float direction = inputX > 0 ? 1 : -1;
+                Vector3 newScale = transform.localScale;
+                newScale.x = direction;
+                transform.localScale = newScale;
+            }
         }
         rb.velocity = new Vector2(inputX * movementSpeed, rb.velocity.y);
     }
 
     private void Jump() {
+        anim.SetTrigger("jumpTrigger");
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 

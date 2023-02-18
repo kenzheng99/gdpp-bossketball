@@ -207,6 +207,7 @@ MonoBehaviour:
   powerScale: 2
   lineLength: 10
   cooldownTime: 0.5
+  anim: {fileID: 1483945555560050048}
 --- !u!114 &1504030542
 MonoBehaviour:
   m_ObjectHideFlags: 0
