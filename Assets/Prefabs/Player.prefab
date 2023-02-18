@@ -223,7 +223,7 @@ MonoBehaviour:
   maxHealth: 5
   invulnerableDurationSeconds: 1.5
   invulnerabilityDeltaTime: 0.15
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 5742945033458100621}
 --- !u!120 &1288237228
 LineRenderer:
   m_ObjectHideFlags: 0
