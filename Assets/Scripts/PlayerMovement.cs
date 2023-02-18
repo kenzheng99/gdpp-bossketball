@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Animator anim;
 
     private Rigidbody2D rb;
     private bool touchingFloor;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCooldown;
     [SerializeField] private PlayerHealthController _playerHealthController;
+    
     private Vector2 dashingDir;
     private bool isDashing;
     private bool canDash = true;
@@ -79,6 +81,15 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move(float inputX) {
+        if (inputX == 0) { // stopped
+            anim.SetBool("isRunning", false);
+        } else { // running
+            float direction = inputX > 0 ? 1 : -1;
+            Vector3 newScale = transform.localScale;
+            newScale.x = direction;
+            transform.localScale = newScale;
+            anim.SetBool("isRunning", true);
+        }
         rb.velocity = new Vector2(inputX * movementSpeed, rb.velocity.y);
     }
 
