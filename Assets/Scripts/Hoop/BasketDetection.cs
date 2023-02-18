@@ -8,9 +8,10 @@ public class BasketDetection : MonoBehaviour {
 
     public Boss _boss;
     private float enterY;
+    [SerializeField] private int successfulShotDamage;
+    [SerializeField] private int hoopHealth = 5;
     [SerializeField] private ParticleSystem succesfulShotParticles;
     [SerializeField] private ParticleSystem hoopDestroyedParticles;
-    [SerializeField] private int hoopHealth = 5;
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Ball")) {
@@ -28,10 +29,10 @@ public class BasketDetection : MonoBehaviour {
                 //destroy ball
                 Destroy(other.gameObject);
                 // as long as hoop is not dead
+                _boss.BossTakeDamage(successfulShotDamage);
                 if (hoopHealth > 0)
                 {
                     //boss takes normal 1 damage
-                    _boss.BossTakeDamage(1);
 
                     //play particle effect and destroy ball
                     var particleEmission = succesfulShotParticles.emission;
@@ -44,9 +45,6 @@ public class BasketDetection : MonoBehaviour {
                 // hoop is dead
                 else
                 {
-                    // boss takes extra damage
-                    _boss.BossTakeDamage(5);
-
                     //play hoopDestroyedParticles and destroy hoop
                     var particleEmission = hoopDestroyedParticles.emission;
                     var particleDuration = hoopDestroyedParticles.duration;

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 0}
+  bossPrefab: {fileID: 9137625031940689171, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
   player: {fileID: 0}
   bossHealthBar: {fileID: 0}
   playerHealthUI: {fileID: 0}

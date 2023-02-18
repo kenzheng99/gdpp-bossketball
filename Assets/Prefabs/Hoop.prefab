@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boss: {fileID: 0}
+  successfulShotDamage: 5
+  hoopHealth: 5
   succesfulShotParticles: {fileID: 82779520478974634}
   hoopDestroyedParticles: {fileID: 7784553598205175647}
-  hoopHealth: 5
 --- !u!1 &6709246616507678363
 GameObject:
   m_ObjectHideFlags: 0
