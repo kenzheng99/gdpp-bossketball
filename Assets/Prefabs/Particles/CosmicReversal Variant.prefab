@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501182, guid: a3f72d5f213bb7d458dfc2c4369e7acf, type: 3}
       propertyPath: m_Name
-      value: CosmicReversal
+      value: CosmicReversal Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501183, guid: a3f72d5f213bb7d458dfc2c4369e7acf, type: 3}
       propertyPath: m_Materials.Array.size
