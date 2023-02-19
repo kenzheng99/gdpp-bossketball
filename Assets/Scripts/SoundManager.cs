@@ -5,19 +5,16 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-    [SerializeField] private AudioSource MusicSource;
-    [SerializeField] private AudioSource SFXSource;
-    [SerializeField] private AudioSource AmbienceSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource ambienceSource;
     public AudioClip battleMusic;
-    public AudioClip playerShootSFX;
     public AudioClip playerFootstepSFX;
     public AudioClip playerJumpSFX;
     public AudioClip playerDamagedSFX;
     public AudioClip bossProjectileAttackSFX;
-    public AudioClip bossDamagedSFX;
+    public AudioClip bossHoopDestroyedSFX;
     public AudioClip succesfulShotSFX;
-    public AudioClip swishSFX;
-    public AudioClip dunkSFX;
 
     private void Start()
     {
@@ -36,7 +33,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-   public void PlayShootingSound()
+    public void StartMusic()
+    {
+        musicSource.Play();
+    }
+
+   public void PlayJumpSound()
     {
 
 
