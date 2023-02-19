@@ -13,15 +13,17 @@ public class SoundManager : MonoBehaviour
     public AudioClip playerDashSFX;
     public AudioClip playerHurtSFX;
     public AudioClip playerDeathSFX;
-    public AudioClip bossProjectileAttackSFX;
+    public AudioClip bossEnteringSpiralAttackSFX;
+    public AudioClip bossEnteringDashingAttackSFX;
     public AudioClip bossHoopDestroyedSFX;
     public AudioClip bossEnteringPhaseTwoSFX;
     public AudioClip bossDeathSFX;
     public AudioClip succesfulShotSFX;
-    
+ 
 
     private void Start()
     {
+
     }
 
     void Awake()
@@ -68,4 +70,17 @@ public class SoundManager : MonoBehaviour
         sfxSource.clip = succesfulShotSFX;
         sfxSource.PlayOneShot(succesfulShotSFX);
     }
+
+    public void PlaySpiralAttackIntroSound()
+    {
+        sfxSource.clip = bossEnteringSpiralAttackSFX;
+        sfxSource.PlayOneShot(bossEnteringSpiralAttackSFX);
+    }
+
+    public void PlayDashingAttackIntroSound()
+    {
+        sfxSource.clip = bossEnteringDashingAttackSFX;
+        sfxSource.PlayOneShot(bossEnteringDashingAttackSFX);
+    }
+
 }

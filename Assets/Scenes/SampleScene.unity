@@ -336,25 +336,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 845836838}
+    - target: {fileID: 761148747466516480, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1020486895}
     - target: {fileID: 3608308519436096024, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 845836838}
+    - target: {fileID: 3608308519436096024, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1020486895}
     - target: {fileID: 6737084760134920058, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 845836838}
+    - target: {fileID: 6737084760134920058, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1020486895}
     - target: {fileID: 7349174610202631522, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 845836838}
+    - target: {fileID: 7349174610202631522, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1020486895}
     - target: {fileID: 7565512848223069191, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7565512848223069191, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565512848223069243, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_Pivot.x
@@ -531,6 +543,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020486895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
+  m_PrefabInstance: {fileID: 1679306639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f9e95e8d91043188247fdcd9434d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1208376207
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,17 +773,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: playerDashSFX
+      propertyPath: buttonSelectUISFX
       value: 
-      objectReference: {fileID: 8300000, guid: 16c049250a2234a49ab283dce7d40da2, type: 3}
-    - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: playerHurtSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 37f0c8bc5df866b42919ae611d3a2c83, type: 3}
-    - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: playerJumpSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 639dad037497ae7438f0abc834f1d9f5, type: 3}
+      objectReference: {fileID: 8300000, guid: e75b71df50f82b6428a9f27a652c404c, type: 3}
     - target: {fileID: 7025494258748486098, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -811,7 +826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025494259712693755, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_Volume
-      value: 0.178
+      value: 0.204
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
