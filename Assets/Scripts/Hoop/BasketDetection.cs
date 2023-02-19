@@ -22,7 +22,6 @@ public class BasketDetection : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ball")) {
             if (other.gameObject.transform.position.y < enterY) {
-                Debug.Log("Score");
 
                 // hoop loses 1 health
                 hoopHealth -= 1;

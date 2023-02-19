@@ -32,7 +32,6 @@ public class Projectile : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Player")) {
             // TODO: do damage
-            Debug.Log("Hit player");
             Destroy(gameObject);
         }
     }

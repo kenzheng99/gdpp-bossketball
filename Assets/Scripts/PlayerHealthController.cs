@@ -56,7 +56,6 @@ public class PlayerHealthController : MonoBehaviour
     private IEnumerator BecomeTemporarilyInvulnerable()
     {
         isInvulnerable = true;
-        Debug.Log(isInvulnerable);
         // when invulnerable can go through boss w/o getting hurt
         Physics2D.IgnoreLayerCollision(6, 8, true);
            
@@ -71,7 +70,6 @@ public class PlayerHealthController : MonoBehaviour
             yield return new WaitForSeconds(invulnerabilityDeltaTime);
         }
         isInvulnerable = false;
-        Debug.Log(isInvulnerable);
         Physics2D.IgnoreLayerCollision(6, 8, false);
         ScaleModelTo(Vector3.one);
     }
