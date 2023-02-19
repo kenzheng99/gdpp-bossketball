@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7025494259712693755, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
+      propertyPath: m_Volume
+      value: 0.143
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
 --- !u!1 &1410724671
@@ -919,6 +923,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1832845968}
+    - target: {fileID: 9067901098365963282, guid: a769435ec84b943939d98eebc0ab6e6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1832845968}
+    - target: {fileID: 9067901098365963282, guid: a769435ec84b943939d98eebc0ab6e6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonSelectSound
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a769435ec84b943939d98eebc0ab6e6c, type: 3}
 --- !u!224 &1864924460 stripped
