@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public int maxHealth = 216;
+    public int maxHealth;
     [SerializeField] private ParticleSystem bossDeathParticles;
     private Rigidbody2D rb;
     [SerializeField] private BossStateMachine _bossStateMachine;

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DashAttackState
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  dashSpeed: 7
+  dashSpeed: 6
   aggroDistance: 17
   shakeDurationSeconds: 1.5
-  shakeMagnitude: 0.2
+  shakeMagnitude: 0.1
   shakeSpeed: 200
   dashWaitSeconds: 0.5
-  numAttacks: 2
+  numAttacks: 1
   numDashes: 3

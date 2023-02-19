@@ -15,7 +15,7 @@ public class BossStateMachine : MonoBehaviour {
     private BossState[] stateList;
     private BossState currentState;
     void Start() {
-        stateList = new BossState[] {idleState, spiralAttackState, homingAttackState};
+        stateList = new BossState[] {idleState, spiralAttackState, homingAttackState, dashAttackState};
         currentState = initialState;
         initialState.EnterState(this);
     }
