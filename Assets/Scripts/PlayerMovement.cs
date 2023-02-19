@@ -16,13 +16,15 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCooldown;
     [SerializeField] private PlayerHealthController _playerHealthController;
-    
+    [SerializeField] private AudioSource playerAudio;
+
     private Vector2 dashingDir;
     private bool isDashing;
     private bool canDash = true;
     private TrailRenderer trailRenderer;
     
-    void Start() {
+    void Start() 
+    {
         rb = gameObject.GetComponent<Rigidbody2D>();
         trailRenderer = GetComponent<TrailRenderer>();
     }
@@ -34,11 +36,23 @@ public class PlayerMovement : MonoBehaviour {
         
         float inputX = Input.GetAxisRaw("Horizontal");
         Move(inputX);
+        
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && touchingFloor && isDashing == false)
+        {
+            playerAudio.enabled = true;
+        }
+        else
+        {
+            playerAudio.enabled = false;
+        }
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (touchingFloor) {
                 Jump();
+                // play jump sound
+                SoundManager.Instance.PlayJumpSound();
             } else if (canDoubleJump) {
                 Jump();
+                SoundManager.Instance.PlayJumpSound();
                 canDoubleJump = false;
             }
         }
@@ -64,7 +78,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Dash()
     {
         isDashing = true;
-        
         canDash = false;
         trailRenderer.emitting = true;
         dashingDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -72,7 +85,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             dashingDir = new Vector2(transform.localScale.x, 0);
         }
-        
+        // play dash sound
+        SoundManager.Instance.PlayDashSound();
         // face towards dashing direction
         float direction = dashingDir.x > 0 ? 1 : -1;
         Vector3 newScale = transform.localScale;
