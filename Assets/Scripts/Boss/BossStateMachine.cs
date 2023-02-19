@@ -9,6 +9,7 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public SpiralAttackState spiralAttackState;
     [SerializeField] public StationaryState stationaryState;
     [SerializeField] public HomingAttackState homingAttackState;
+    [SerializeField] public DashAttackState dashAttackState;
 
 
     private BossState[] stateList;
