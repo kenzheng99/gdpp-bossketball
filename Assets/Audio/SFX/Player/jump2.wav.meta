@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Audio/SFX/Player/jump2.wav.meta
 guid: 639dad037497ae7438f0abc834f1d9f5
+========
+guid: a4532e1cf38fbce4ab48847da3b6755a
+>>>>>>>> 822cb36 (implemented UI button press and shooting sfx):Assets/Audio/SFX/Player/shootingball.wav.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6
