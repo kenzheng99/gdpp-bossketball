@@ -968,6 +968,10 @@ PrefabInstance:
       propertyPath: initialState
       value: 
       objectReference: {fileID: 11400000, guid: 31ad9ce3b683f18409a60ab748a21346, type: 2}
+    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
+      propertyPath: dashAttackState
+      value: 
+      objectReference: {fileID: 11400000, guid: 31ad9ce3b683f18409a60ab748a21346, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
 --- !u!1001 &7890406672813188249
