@@ -14,11 +14,12 @@ public class DashAttackState : BossState {
     [SerializeField] private float dashSpeed;
     [SerializeField] private float aggroDistance;
     [SerializeField] private float shakeDurationSeconds;
+    [SerializeField] private float shakeMagnitude;
+    [SerializeField] private float shakeSpeed;
     [SerializeField] private float dashWaitSeconds;
     [SerializeField] private int numAttacks;
     [SerializeField] private int numDashes;
-    
-    
+
     private GameObject boss;
     private Transform playerTr;
     private Timer stateTimer;
@@ -70,7 +71,7 @@ public class DashAttackState : BossState {
                 shakeTimer ??= new Timer(shakeDurationSeconds);
                 shakeTimer.Tick(Time.deltaTime);
                 
-                var shakeX = bossPos.x + Mathf.Sin(Time.time * 200f) * 0.2f;
+                var shakeX = bossPos.x + Mathf.Sin(Time.time * shakeSpeed) * shakeMagnitude;
                 boss.transform.position = new Vector3(shakeX,bossPos.y,bossPos.z);
 
                 if (updateHoldPos) {

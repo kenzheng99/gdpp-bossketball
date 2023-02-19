@@ -16,6 +16,8 @@ MonoBehaviour:
   dashSpeed: 7
   aggroDistance: 17
   shakeDurationSeconds: 1.5
+  shakeMagnitude: 0.2
+  shakeSpeed: 200
   dashWaitSeconds: 0.5
   numAttacks: 2
   numDashes: 3
