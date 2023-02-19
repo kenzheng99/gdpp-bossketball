@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bossProjectileAttackSFX;
     public AudioClip bossHoopDestroyedSFX;
     public AudioClip succesfulShotSFX;
+    public AudioClip buttonSelectUISFX;
 
     private void Start()
     {
@@ -38,6 +39,11 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
+   public void PlayButtonSelectSound()
+    {
+        sfxSource.clip = buttonSelectUISFX;
+        sfxSource.Play();
+    }
    public void PlayJumpSound()
     {
 
