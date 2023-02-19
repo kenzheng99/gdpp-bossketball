@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bossDeathSFX;
     public AudioClip succesfulShotSFX;  
 
+
     private void Start()
     {
 
