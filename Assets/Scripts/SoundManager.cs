@@ -8,13 +8,17 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource ambienceSource;
-    public AudioClip battleMusic;
-    public AudioClip playerFootstepSFX;
+    public AudioClip buttonSelectUISFX;
     public AudioClip playerJumpSFX;
-    public AudioClip playerDamagedSFX;
+    public AudioClip playerDashSFX;
+    public AudioClip playerHurtSFX;
+    public AudioClip playerDeathSFX;
     public AudioClip bossProjectileAttackSFX;
     public AudioClip bossHoopDestroyedSFX;
+    public AudioClip bossEnteringPhaseTwoSFX;
+    public AudioClip bossDeathSFX;
     public AudioClip succesfulShotSFX;
+    
 
     private void Start()
     {
@@ -38,10 +42,30 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
+   public void PlayButtonSelectSound()
+    {
+        sfxSource.clip = buttonSelectUISFX;
+        sfxSource.Play();
+    }
    public void PlayJumpSound()
     {
-
-
+        sfxSource.clip = playerJumpSFX;
+        sfxSource.PlayOneShot(playerJumpSFX);
     }
 
+    public void PlayDashSound()
+    {
+        sfxSource.clip = playerJumpSFX;
+        sfxSource.PlayOneShot(playerDashSFX);
+    }
+    public void PlayPlayerHurtSound()
+    {
+        sfxSource.clip = playerHurtSFX;
+        sfxSource.PlayOneShot(playerHurtSFX);
+    }
+    public void PlaySuccesfulShotSound()
+    {
+        sfxSource.clip = succesfulShotSFX;
+        sfxSource.PlayOneShot(succesfulShotSFX);
+    }
 }

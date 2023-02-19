@@ -31,7 +31,7 @@ public class PlayerHealthController : MonoBehaviour
         }
         health -= damage;
         gameManager.UpdatePlayerHealth(health);
-        
+        SoundManager.Instance.PlayPlayerHurtSound();
         if (health <= 0) {
             anim.SetTrigger("deathTrigger");
         } else {
