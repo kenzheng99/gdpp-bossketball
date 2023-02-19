@@ -50,17 +50,20 @@ MonoBehaviour:
   musicSource: {fileID: 7025494259440941278}
   sfxSource: {fileID: 7025494259712693755}
   ambienceSource: {fileID: 7025494258762500878}
-  buttonSelectUISFX: {fileID: 0}
+  buttonSelectUISFX: {fileID: 8300000, guid: e75b71df50f82b6428a9f27a652c404c, type: 3}
   playerJumpSFX: {fileID: 8300000, guid: 639dad037497ae7438f0abc834f1d9f5, type: 3}
   playerDashSFX: {fileID: 8300000, guid: 16c049250a2234a49ab283dce7d40da2, type: 3}
   playerHurtSFX: {fileID: 8300000, guid: 37f0c8bc5df866b42919ae611d3a2c83, type: 3}
-  playerDeathSFX: {fileID: 0}
-  bossEnteringSpiralAttackSFX: {fileID: 8300000, guid: e2a1e53e2d3cd88408a26d717d9d3cdb, type: 3}
+  bossEnteringSpiralAttackSFX: {fileID: 8300000, guid: e5c9d99c2364708468c5c7a712ecd598, type: 3}
   bossEnteringDashingAttackSFX: {fileID: 8300000, guid: 926ce8d09a790f543839ebe20e617569, type: 3}
-  bossHoopDestroyedSFX: {fileID: 8300000, guid: 2549aa2081585ec438811edddc552efb, type: 3}
+  bossEnteringHomingAttackSFX: {fileID: 8300000, guid: b07c38037e064734ca6c460bab410e5a, type: 3}
+  bossHoopDamagedSFX: {fileID: 8300000, guid: 2549aa2081585ec438811edddc552efb, type: 3}
+  bossHoopDestroyedSFX: {fileID: 8300000, guid: 555b901bf3706d647bac736913fc5cf7, type: 3}
   bossEnteringPhaseTwoSFX: {fileID: 8300000, guid: 885fd17224d5141468542c9a8577e80b, type: 3}
   bossDeathSFX: {fileID: 8300000, guid: b7be36b547e9263468dc99872953b9f5, type: 3}
-  succesfulShotSFX: {fileID: 0}
+  bossGenericRoarSFX: {fileID: 8300000, guid: 555b901bf3706d647bac736913fc5cf7, type: 3}
+  succesfulShotSFX: {fileID: 8300000, guid: b71edef5d6eb84fe0b6837f05a411bd4, type: 3}
+  hoopDestroyedSFX: {fileID: 8300000, guid: 43a1237252163094d9b83358b640ba5a, type: 3}
 --- !u!1 &7025494258762500864
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +236,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2a66b2d350457db4890aa2084547202d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.752
+  m_Volume: 0.699
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -360,8 +363,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.178
+  m_PlayOnAwake: 0
+  m_Volume: 0.434
   m_Pitch: 1
   Loop: 0
   Mute: 0

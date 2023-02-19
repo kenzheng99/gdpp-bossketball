@@ -9,7 +9,8 @@ public class BasketDetection : MonoBehaviour {
     public Boss _boss;
     private float enterY;
     [SerializeField] private int successfulShotDamage;
-    [SerializeField] private int hoopHealth = 5;
+    [SerializeField] private int hoopDestroyedDamage;
+    [SerializeField] private int hoopHealth = 3;
     [SerializeField] private ParticleSystem succesfulShotParticles;
     [SerializeField] private ParticleSystem hoopDestroyedParticles;
 
@@ -28,30 +29,42 @@ public class BasketDetection : MonoBehaviour {
                 //destroy ball
                 Destroy(other.gameObject);
                 // as long as hoop is not dead
-                _boss.BossTakeDamage(successfulShotDamage);
                 if (hoopHealth > 0)
                 {
-                    //boss takes normal 1 damage
-
+                    //boss takes normal 3 damage
+                    _boss.BossTakeDamage(successfulShotDamage);
                     //play particle effect and destroy ball
                     var particleEmission = succesfulShotParticles.emission;
                     var particleDuration = succesfulShotParticles.duration;
                     particleEmission.enabled = true;
                     succesfulShotParticles.Play();
                     Invoke(nameof(StopSuccesfulShotParticles), particleDuration - 1);
-                    
+
+                    if (_boss.hasEnteredPhaseTwo == false)
+                    {
+                        SoundManager.Instance.PlayBossHoopDamagedSound();
+                    }
+                    SoundManager.Instance.PlaySuccesfulShotSound();
                 }
                 // hoop is dead
                 else
                 {
+                    _boss.BossTakeDamage(hoopDestroyedDamage);
                     //play hoopDestroyedParticles and destroy hoop
                     var particleEmission = hoopDestroyedParticles.emission;
                     var particleDuration = hoopDestroyedParticles.duration;
                     particleEmission.enabled = true;
                     hoopDestroyedParticles.Play();
+
+                    if (_boss.hasEnteredPhaseTwo == false)
+                    {
+                        SoundManager.Instance.PlayBossHoopDestroyedSound();
+                    }
+                    SoundManager.Instance.PlayHoopDestroyedSound();
                     // turn off collider to prevent player shooting into it again (particle effect needs time to run)
                     GetComponent<BoxCollider2D>().enabled = false;
                     Invoke(nameof(DestroyHoop), particleDuration);
+
                 }
             }
         }

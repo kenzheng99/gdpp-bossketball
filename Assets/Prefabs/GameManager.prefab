@@ -51,3 +51,4 @@ MonoBehaviour:
   playerHealthUI: {fileID: 0}
   winScreen: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  bossPhaseTwo: 0

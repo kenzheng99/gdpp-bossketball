@@ -8,18 +8,29 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource ambienceSource;
+
+    //ui
     public AudioClip buttonSelectUISFX;
+
+    //player
     public AudioClip playerJumpSFX;
     public AudioClip playerDashSFX;
     public AudioClip playerHurtSFX;
-    public AudioClip playerDeathSFX;
+
+    //boss
     public AudioClip bossEnteringSpiralAttackSFX;
     public AudioClip bossEnteringDashingAttackSFX;
+    public AudioClip bossEnteringHomingAttackSFX;
+    public AudioClip bossHoopDamagedSFX;
     public AudioClip bossHoopDestroyedSFX;
     public AudioClip bossEnteringPhaseTwoSFX;
     public AudioClip bossDeathSFX;
+    public AudioClip bossGenericRoarSFX;
+    
+    //particles
     public AudioClip succesfulShotSFX;
- 
+    public AudioClip hoopDestroyedSFX;
+
 
     private void Start()
     {
@@ -71,16 +82,56 @@ public class SoundManager : MonoBehaviour
         sfxSource.PlayOneShot(succesfulShotSFX);
     }
 
+    public void PlayBossHoopDamagedSound()
+    {
+        sfxSource.clip = bossHoopDamagedSFX;
+        sfxSource.PlayOneShot(bossHoopDamagedSFX);
+    }
+
+    public void PlayBossHoopDestroyedSound()
+    {
+        sfxSource.clip = bossHoopDestroyedSFX;
+        sfxSource.PlayOneShot(bossHoopDestroyedSFX);
+    }
+
+    public void PlayHoopDestroyedSound()
+    {
+        sfxSource.clip = hoopDestroyedSFX;
+        sfxSource.PlayOneShot(hoopDestroyedSFX);
+    }
+
     public void PlaySpiralAttackIntroSound()
     {
         sfxSource.clip = bossEnteringSpiralAttackSFX;
         sfxSource.PlayOneShot(bossEnteringSpiralAttackSFX);
     }
 
+    public void PlayHomingAttackIntroSound()
+    {
+        sfxSource.clip = bossEnteringHomingAttackSFX;
+        sfxSource.PlayOneShot(bossEnteringHomingAttackSFX);
+    }
     public void PlayDashingAttackIntroSound()
     {
         sfxSource.clip = bossEnteringDashingAttackSFX;
         sfxSource.PlayOneShot(bossEnteringDashingAttackSFX);
+    }
+
+    public void PlayBossGenericRoarSound()
+    {
+        sfxSource.clip = bossGenericRoarSFX;
+        sfxSource.PlayOneShot(bossGenericRoarSFX);
+    }
+
+    public void PlayBossPhaseTwoIntroSound()
+    {
+        sfxSource.clip = bossEnteringPhaseTwoSFX;
+        sfxSource.PlayOneShot(bossEnteringPhaseTwoSFX);
+    }
+    public void PlayBossDeathSound()
+    {
+        sfxSource.clip = bossDeathSFX;
+        sfxSource.PlayOneShot(bossDeathSFX);
     }
 
 }

@@ -30,6 +30,11 @@ public class HomingAttackState: BossState {
 
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("HomingAttackState");
+        if (GameManager._instance.bossPhaseTwo == true)
+        {
+            SoundManager.Instance.PlayBossGenericRoarSound();
+        }
+        SoundManager.Instance.PlayHomingAttackIntroSound();
         postAttackWaitTimer = new Timer(postAttackWait);
         fireCoolDown = new Timer(coolDown);
         
