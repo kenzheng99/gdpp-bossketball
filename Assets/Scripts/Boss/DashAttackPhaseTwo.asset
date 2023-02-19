@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 681449f8db654604a787fe44886a13a7, type: 3}
-  m_Name: DashAttackState
+  m_Name: DashAttackPhaseTwo
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  dashSpeed: 4
-  aggroDistance: 17
-  shakeDurationSeconds: 1.5
-  shakeMagnitude: 0.1
-  shakeSpeed: 200
-  dashWaitSeconds: 0.25
-  numAttacks: 1
-  numDashes: 3
+  moveSpeed: 0
+  dashSpeed: 0
+  aggroDistance: 0
+  shakeDurationSeconds: 0
+  shakeMagnitude: 0
+  shakeSpeed: 0
+  dashWaitSeconds: 0
+  numAttacks: 0
+  numDashes: 0

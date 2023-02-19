@@ -39,11 +39,13 @@ public class DashAttackState : BossState {
 
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("DashAttackState");
+
+        SoundManager.Instance.PlayDashingAttackIntroSound();
         if (GameManager.Instance.bossPhaseTwo == true)
         {
             SoundManager.Instance.PlayBossGenericRoarSound();
         }
-        SoundManager.Instance.PlayDashingAttackIntroSound();
+        
         boss = stateMachine.gameObject;
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -78,6 +80,7 @@ public class DashAttackState : BossState {
                 
                 var shakeX = bossPos.x + Mathf.Sin(Time.time * shakeSpeed) * shakeMagnitude;
                 boss.transform.position = new Vector3(shakeX,bossPos.y,bossPos.z);
+                // spawn arrow to indicate dash direction on screen
 
                 if (updateHoldPos) {
                     // hold player position for first dash
@@ -107,7 +110,7 @@ public class DashAttackState : BossState {
                     dashWaitTimer ??= new Timer(dashWaitSeconds);
                     dashWaitTimer.Tick(Time.deltaTime);
                     
-                    boss.transform.Translate(dashSpeed*4 * Time.deltaTime * Vector3.up);
+                    boss.transform.Translate(dashSpeed* 4 * Time.deltaTime * Vector3.up);
                     
                     if (dashWaitTimer.Done()) {
                         dashWaitTimer = null;

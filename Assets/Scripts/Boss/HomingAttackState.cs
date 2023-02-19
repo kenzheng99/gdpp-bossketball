@@ -24,6 +24,7 @@ public class HomingAttackState: BossState {
     [SerializeField] private float moveDirectionDelta;
     [SerializeField] private float moveSpeed;
 
+
     private GameObject boss;
     private Vector3 fireDir;
     private Timer fireCoolDown;
