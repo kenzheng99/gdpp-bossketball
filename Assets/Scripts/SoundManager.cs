@@ -6,8 +6,9 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private AudioSource ambienceSource;
+    [SerializeField] private AudioSource bossSFXSource;
+    [SerializeField] private AudioSource UISFXSource;
+    [SerializeField] private AudioSource playerSFXSource;
 
     //ui
     public AudioClip buttonSelectUISFX;
@@ -57,81 +58,81 @@ public class SoundManager : MonoBehaviour
 
    public void PlayButtonSelectSound()
     {
-        sfxSource.clip = buttonSelectUISFX;
-        sfxSource.Play();
+        UISFXSource.clip = buttonSelectUISFX;
+        UISFXSource.Play();
     }
    public void PlayJumpSound()
     {
-        sfxSource.clip = playerJumpSFX;
-        sfxSource.PlayOneShot(playerJumpSFX);
+        playerSFXSource.clip = playerJumpSFX;
+        playerSFXSource.PlayOneShot(playerJumpSFX);
     }
 
     public void PlayDashSound()
     {
-        sfxSource.clip = playerJumpSFX;
-        sfxSource.PlayOneShot(playerDashSFX);
+        playerSFXSource.clip = playerJumpSFX;
+        playerSFXSource.PlayOneShot(playerDashSFX);
     }
     public void PlayPlayerHurtSound()
     {
-        sfxSource.clip = playerHurtSFX;
-        sfxSource.PlayOneShot(playerHurtSFX);
+        playerSFXSource.clip = playerHurtSFX;
+        playerSFXSource.PlayOneShot(playerHurtSFX);
     }
     public void PlaySuccesfulShotSound()
     {
-        sfxSource.clip = succesfulShotSFX;
-        sfxSource.PlayOneShot(succesfulShotSFX);
+        bossSFXSource.clip = succesfulShotSFX;
+        bossSFXSource.PlayOneShot(succesfulShotSFX);
     }
 
     public void PlayBossHoopDamagedSound()
     {
-        sfxSource.clip = bossHoopDamagedSFX;
-        sfxSource.PlayOneShot(bossHoopDamagedSFX);
+        bossSFXSource.clip = bossHoopDamagedSFX;
+        bossSFXSource.PlayOneShot(bossHoopDamagedSFX);
     }
 
     public void PlayBossHoopDestroyedSound()
     {
-        sfxSource.clip = bossHoopDestroyedSFX;
-        sfxSource.PlayOneShot(bossHoopDestroyedSFX);
+        bossSFXSource.clip = bossHoopDestroyedSFX;
+        bossSFXSource.PlayOneShot(bossHoopDestroyedSFX);
     }
 
     public void PlayHoopDestroyedSound()
     {
-        sfxSource.clip = hoopDestroyedSFX;
-        sfxSource.PlayOneShot(hoopDestroyedSFX);
+        bossSFXSource.clip = hoopDestroyedSFX;
+        bossSFXSource.PlayOneShot(hoopDestroyedSFX);
     }
 
     public void PlaySpiralAttackIntroSound()
     {
-        sfxSource.clip = bossEnteringSpiralAttackSFX;
-        sfxSource.PlayOneShot(bossEnteringSpiralAttackSFX);
+        bossSFXSource.clip = bossEnteringSpiralAttackSFX;
+        bossSFXSource.PlayOneShot(bossEnteringSpiralAttackSFX);
     }
 
     public void PlayHomingAttackIntroSound()
     {
-        sfxSource.clip = bossEnteringHomingAttackSFX;
-        sfxSource.PlayOneShot(bossEnteringHomingAttackSFX);
+        bossSFXSource.clip = bossEnteringHomingAttackSFX;
+        bossSFXSource.PlayOneShot(bossEnteringHomingAttackSFX);
     }
     public void PlayDashingAttackIntroSound()
     {
-        sfxSource.clip = bossEnteringDashingAttackSFX;
-        sfxSource.PlayOneShot(bossEnteringDashingAttackSFX);
+        bossSFXSource.clip = bossEnteringDashingAttackSFX;
+        bossSFXSource.PlayOneShot(bossEnteringDashingAttackSFX);
     }
 
     public void PlayBossGenericRoarSound()
     {
-        sfxSource.clip = bossGenericRoarSFX;
-        sfxSource.PlayOneShot(bossGenericRoarSFX);
+        bossSFXSource.clip = bossGenericRoarSFX;
+        bossSFXSource.PlayOneShot(bossGenericRoarSFX);
     }
 
     public void PlayBossPhaseTwoIntroSound()
     {
-        sfxSource.clip = bossEnteringPhaseTwoSFX;
-        sfxSource.PlayOneShot(bossEnteringPhaseTwoSFX);
+        bossSFXSource.clip = bossEnteringPhaseTwoSFX;
+        bossSFXSource.PlayOneShot(bossEnteringPhaseTwoSFX);
     }
     public void PlayBossDeathSound()
     {
-        sfxSource.clip = bossDeathSFX;
-        sfxSource.PlayOneShot(bossDeathSFX);
+        bossSFXSource.clip = bossDeathSFX;
+        bossSFXSource.PlayOneShot(bossDeathSFX);
     }
 
 }

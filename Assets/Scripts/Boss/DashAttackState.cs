@@ -39,6 +39,11 @@ public class DashAttackState : BossState {
 
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("DashAttackState");
+        if (GameManager._instance.bossPhaseTwo == true)
+        {
+            SoundManager.Instance.PlayBossGenericRoarSound();
+        }
+        SoundManager.Instance.PlayDashingAttackIntroSound();
         boss = stateMachine.gameObject;
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
 
