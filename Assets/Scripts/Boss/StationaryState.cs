@@ -17,7 +17,6 @@ public class StationaryState : BossState {
 
     public override void UpdateState(BossStateMachine stateMachine) {
         if (Vector2.Distance(boss.transform.position, targetPosition) > 0.01) {
-            Debug.Log("Moving");
             Vector2 newPosition = Vector2.SmoothDamp(boss.transform.position, targetPosition, ref currentVelocity,
                 bossMoveTime);
             boss.transform.position = newPosition;
