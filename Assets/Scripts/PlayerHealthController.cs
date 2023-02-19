@@ -11,7 +11,8 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField] private float invulnerableDurationSeconds;
     [SerializeField] private float invulnerabilityDeltaTime;
     [SerializeField] private GameObject playerModel;
-    
+    [SerializeField] private AudioSource playerAudio;
+
     private int health;
     private bool isInvulnerable = false;
     private GameManager gameManager;
@@ -34,6 +35,7 @@ public class PlayerHealthController : MonoBehaviour
         SoundManager.Instance.PlayPlayerHurtSound();
         if (health <= 0) {
             anim.SetTrigger("deathTrigger");
+            playerAudio.enabled = false;
         } else {
             StartCoroutine(BecomeTemporarilyInvulnerable());
         }

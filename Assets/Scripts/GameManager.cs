@@ -12,7 +12,7 @@ public enum GameState {
 };
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance; // set up the singleton
+    public static GameManager _instance; // set up the singleton
 
     public GameState CurrentState { get; private set; }
     
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerHealthUI playerHealthUI;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject gameOverScreen;
+
+    public bool bossPhaseTwo = false;
 
     private Vector3 bossStartPosition;
 
@@ -60,9 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateBossHealth(int health) {
         bossHealthBar.SetHealth(health);
-        if (health <= 0) {
-            Win();
-        }
     }
 
     public void UpdatePlayerHealth(int health) {
@@ -83,7 +82,12 @@ public class GameManager : MonoBehaviour
         foreach (GameObject projectile in bossProjectiles) {
             Destroy(projectile);
         }
-        
+        GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
+        foreach (GameObject ball in balls)
+        {
+            Destroy(ball);
+        }
+
         boss = Instantiate(bossPrefab, bossStartPosition, Quaternion.identity);
         player.ResetPlayer();
         Time.timeScale = 1;
@@ -101,7 +105,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void Win() {
+    public void Win() 
+    {
         CurrentState = GameState.WIN;
         winScreen.SetActive(true);
         Time.timeScale = 0;

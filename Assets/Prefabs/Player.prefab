@@ -226,6 +226,7 @@ MonoBehaviour:
   invulnerableDurationSeconds: 1.5
   invulnerabilityDeltaTime: 0.15
   playerModel: {fileID: 5742945033458100621}
+  playerAudio: {fileID: 8617211521291839540}
 --- !u!120 &1288237228
 LineRenderer:
   m_ObjectHideFlags: 0

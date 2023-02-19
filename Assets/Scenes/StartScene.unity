@@ -417,10 +417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: buttonSelectUISFX
-      value: 
-      objectReference: {fileID: 8300000, guid: e75b71df50f82b6428a9f27a652c404c, type: 3}
     - target: {fileID: 7025494258748486098, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -469,9 +465,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7025494259712693755, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
+    - target: {fileID: 7025494259440941278, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_Volume
-      value: 0.143
+      value: 0.416
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}

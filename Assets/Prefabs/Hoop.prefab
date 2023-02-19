@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boss: {fileID: 0}
-  successfulShotDamage: 5
-  hoopHealth: 5
+  successfulShotDamage: 3
+  hoopDestroyedDamage: 9
+  hoopHealth: 3
   succesfulShotParticles: {fileID: 82779520478974634}
   hoopDestroyedParticles: {fileID: 7784553598205175647}
 --- !u!1 &6709246616507678363
