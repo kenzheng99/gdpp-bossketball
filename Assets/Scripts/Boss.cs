@@ -64,6 +64,8 @@ public class Boss : MonoBehaviour
         SoundManager.Instance.PlayBossDeathSound();
         //turn off colliders 
         GetComponent<CircleCollider2D>().enabled = false;
+        // ignore collision of player and boss projectiles
+        Physics2D.IgnoreLayerCollision(6, 9, true);
         //turn off boss state machine
         _bossStateMachine.enabled = false;
         //play particle effect
