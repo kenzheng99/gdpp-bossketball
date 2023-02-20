@@ -41,7 +41,7 @@ public class BossStateMachine : MonoBehaviour {
     }
 
     public void SwitchToRandomState() {
-        if (GameManager._instance.bossPhaseTwo)
+        if (GameManager.Instance.bossPhaseTwo)
         {
             int randomIndex = Random.Range(0, phaseTwoStateList.Length);
             while (phaseTwoStateList[randomIndex] == currentState)

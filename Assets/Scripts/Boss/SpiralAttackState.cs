@@ -23,7 +23,7 @@ public class SpiralAttackState: BossState {
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("SpiralAttackState");
         SoundManager.Instance.PlaySpiralAttackIntroSound();
-        if (GameManager._instance.bossPhaseTwo == true)
+        if (GameManager.Instance.bossPhaseTwo == true)
         {
             SoundManager.Instance.PlayBossGenericRoarSound();
         }

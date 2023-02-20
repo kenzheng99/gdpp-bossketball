@@ -43,7 +43,7 @@ public class Boss : MonoBehaviour
         // enters phase 2 at 50% health
         if (currentHealth <= (0.5 * maxHealth) && hasEnteredPhaseTwo == false)
         {
-            GameManager._instance.bossPhaseTwo = true;
+            GameManager.Instance.bossPhaseTwo = true;
             hasEnteredPhaseTwo = true;
             eyeball.GetComponent<CircleCollider2D>().enabled = true;
             SoundManager.Instance.PlayBossPhaseTwoIntroSound();
@@ -89,6 +89,6 @@ public class Boss : MonoBehaviour
 
     public void Win()
     {
-        GameManager._instance.Win();
+        GameManager.Instance.Win();
     }
 }
