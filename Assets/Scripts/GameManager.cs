@@ -12,7 +12,7 @@ public enum GameState {
 };
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _instance; // set up the singleton
+    private static GameManager _instance; // set up the singleton
 
     public GameState CurrentState { get; private set; }
     
