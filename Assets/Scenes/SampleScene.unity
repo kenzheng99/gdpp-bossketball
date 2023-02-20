@@ -772,10 +772,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 935066443, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: m_Volume
-      value: 0.178
-      objectReference: {fileID: 0}
     - target: {fileID: 7025494258748486098, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -823,18 +819,6 @@ PrefabInstance:
     - target: {fileID: 7025494258748486101, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_Name
       value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7025494258762500878, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: m_Volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7025494259712693755, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: Priority
-      value: 86
-      objectReference: {fileID: 0}
-    - target: {fileID: 7025494259712693755, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: m_Volume
-      value: 0.301
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
@@ -924,10 +908,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2768844613666818259, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5223206388999540198, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -985,10 +965,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 120363016862124402, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: cooldownTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7890406671829373673, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1036,10 +1012,6 @@ PrefabInstance:
     - target: {fileID: 7890406671829373677, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8617211521291839540, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d55edcf024dd64edab884c4c226ed52d, type: 3}

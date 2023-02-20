@@ -3381,6 +3381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eyeball
       objectReference: {fileID: 0}
+    - target: {fileID: 5089904519020343497, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8259680333854353088, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
       propertyPath: m_RootOrder
       value: 8
