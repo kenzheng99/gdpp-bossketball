@@ -10,6 +10,7 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public StationaryState stationaryState;
     [SerializeField] public HomingAttackState homingAttackState;
     [SerializeField] public DashAttackState dashAttackState;
+    [SerializeField] public RevolvingRayAttackState revolvingRayAttackState;
 
     // phase two
     [SerializeField] public IdleState idleStatePhaseTwo;
