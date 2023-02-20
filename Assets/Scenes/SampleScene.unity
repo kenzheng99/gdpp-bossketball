@@ -1011,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: initialState
       value: 
-      objectReference: {fileID: 11400000, guid: 38eaa2be00c69584aa7efc53828e8a00, type: 2}
+      objectReference: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
     - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: revolvingRayAttackState
       value: 
