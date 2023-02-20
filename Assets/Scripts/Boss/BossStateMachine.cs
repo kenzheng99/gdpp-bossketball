@@ -10,6 +10,7 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public StationaryState stationaryState;
     [SerializeField] public HomingAttackState homingAttackState;
     [SerializeField] public DashAttackState dashAttackState;
+    [SerializeField] public RevolvingRayAttackState revolvingRayAttackState;
 
     // phase two
     [SerializeField] public IdleState idleStatePhaseTwo;
@@ -23,7 +24,7 @@ public class BossStateMachine : MonoBehaviour {
     private BossState[] phaseTwoStateList;
     private BossState currentState;
     void Start() {
-        stateList = new BossState[] {idleState, spiralAttackState, homingAttackState, dashAttackState};
+        stateList = new BossState[] {idleState, spiralAttackState, homingAttackState, dashAttackState, revolvingRayAttackState};
         phaseTwoStateList = new BossState[] { idleStatePhaseTwo, spiralAttackStatePhaseTwo, homingAttackStatePhaseTwo, dashAttackStatePhaseTwo };
         currentState = initialState;
         initialState.EnterState(this);

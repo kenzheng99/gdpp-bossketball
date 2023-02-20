@@ -1729,6 +1729,8 @@ MonoBehaviour:
   spiralAttackStatePhaseTwo: {fileID: 11400000, guid: ce9e3f5438e85e048859d638e1032841, type: 2}
   homingAttackStatePhaseTwo: {fileID: 11400000, guid: 4f13eabd98508fc49b3cc9aaeeeaeb50, type: 2}
   dashAttackStatePhaseTwo: {fileID: 11400000, guid: 74da2958e5bc8004fa1b18eff99dd2c9, type: 2}
+  revolvingRayAttackState: {fileID: 0}
+  revolvingRayAttackState: {fileID: 11400000, guid: 9f28fde9856c6d742be6e85e7dd6a9d1, type: 2}
 --- !u!1 &5892054575230144844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,7 +2253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7413709746673659412}
   m_LocalRotation: {x: -0.0011846558, y: 0.7071058, z: -0.7071058, w: -0.0011846558}
-  m_LocalPosition: {x: -0.13, y: -0.12, z: 2.7}
+  m_LocalPosition: {x: 0, y: 0, z: 2.7}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
