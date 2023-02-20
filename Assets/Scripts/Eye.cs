@@ -21,38 +21,40 @@ public class Eye : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Ball"))
+        if (GameManager.Instance.bossPhaseTwo)
         {
-            SoundManager.Instance.PlayHoopDestroyedSound();
-            Destroy(col.gameObject);
-            //boss takes damage
-            _boss.BossTakeDamage(successfulShotDamage);
-            if (_boss.currentHealth > 0)
+            if (col.gameObject.CompareTag("Ball"))
             {
-                //play particle effect 
-                var particleEmission = succesfulShotParticles.emission;
-                var particleDuration = succesfulShotParticles.duration;
-                particleEmission.enabled = true;
-                succesfulShotParticles.Play();
-                Invoke(nameof(StopSuccesfulShotParticles), particleDuration - 1);
-                SoundManager.Instance.PlayBossHoopDamagedSound();
-            }
+                SoundManager.Instance.PlayHoopDestroyedSound();
+                Destroy(col.gameObject);
+                //boss takes damage
+                _boss.BossTakeDamage(successfulShotDamage);
+                if (_boss.currentHealth > 0)
+                {
+                    //play particle effect 
+                    var particleEmission = succesfulShotParticles.emission;
+                    var particleDuration = succesfulShotParticles.duration;
+                    particleEmission.enabled = true;
+                    succesfulShotParticles.Play();
+                    Invoke(nameof(StopSuccesfulShotParticles), particleDuration - 1);
+                    SoundManager.Instance.PlayBossHoopDamagedSound();
+                }
 
-            else
-            {
-                //play hoopDestroyedParticles and destroy eye
-                var particleEmission = hoopDestroyedParticles.emission;
-                var particleDuration = hoopDestroyedParticles.duration;
-                particleEmission.enabled = true;
-                hoopDestroyedParticles.Play();
-                SoundManager.Instance.PlayBossHoopDestroyedSound();
-                // turn off collider to prevent player shooting into it again (particle effect needs time to run)
-                GetComponent<CircleCollider2D>().enabled = false;
-                Invoke(nameof(DestroyEye), particleDuration - 1);
+                else
+                {
+                    //play hoopDestroyedParticles and destroy eye
+                    var particleEmission = hoopDestroyedParticles.emission;
+                    var particleDuration = hoopDestroyedParticles.duration;
+                    particleEmission.enabled = true;
+                    hoopDestroyedParticles.Play();
+                    SoundManager.Instance.PlayBossHoopDestroyedSound();
+                    // turn off collider to prevent player shooting into it again (particle effect needs time to run)
+                    //GetComponent<CircleCollider2D>().enabled = false;
+                    Invoke(nameof(DestroyEye), particleDuration - 1);
+                }
             }
-            
         }
     }
 

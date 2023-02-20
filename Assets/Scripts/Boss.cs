@@ -20,7 +20,7 @@ public class Boss : MonoBehaviour
         currentHealth = maxHealth;
         gameManager.UpdateBossHealth(currentHealth);
         startingPosition = transform.position;
-        eyeball.GetComponent<CircleCollider2D>().enabled = false;
+        //eyeball.GetComponent<CircleCollider2D>().enabled = false;
 
     }
 
@@ -45,7 +45,7 @@ public class Boss : MonoBehaviour
         {
             GameManager.Instance.bossPhaseTwo = true;
             hasEnteredPhaseTwo = true;
-            eyeball.GetComponent<CircleCollider2D>().enabled = true;
+            //eyeball.GetComponent<CircleCollider2D>().enabled = true;
             SoundManager.Instance.PlayBossPhaseTwoIntroSound();
         }
     }
@@ -78,8 +78,8 @@ public class Boss : MonoBehaviour
         particleEmission.enabled = true;
         bossDeathParticles.Play();
         // delay win until boss death finishes
-        Invoke(nameof(MakeBossDisappear), particleDuration+1.25f);
-        Invoke(nameof(Win), particleDuration+1.6f);
+        Invoke(nameof(MakeBossDisappear), particleDuration+1f);
+        Invoke(nameof(Win), particleDuration+1.5f);
         
     }
     public void MakeBossDisappear()

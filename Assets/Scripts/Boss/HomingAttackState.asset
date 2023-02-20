@@ -18,12 +18,14 @@ MonoBehaviour:
   projectileSpeed: 20
   numProjectiles: 1
   numAttacks: 5
-  coolDown: 3
+  coolDown: 1.75
   targetPosition: {x: 0, y: 20}
   randOffSet: 10
   trajectoryDelay: 0.17
+  waitTimeSeconds: 0
   moveBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
-  leftTargetPos: {x: 0, y: 0}
-  rightTargetPos: {x: 0, y: 0}
+  directionTimeSeconds: 0
+  moveDirectionDelta: 0
+  moveSpeed: 0
