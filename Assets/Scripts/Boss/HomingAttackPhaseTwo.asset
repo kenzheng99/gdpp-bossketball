@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: HomingAttackPhaseTwo
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 57eb76487c5f25c48a1fb4e1e10a0efc, type: 3}
-  postAttackWait: 1
+  postAttackWait: 0.5
   bossMoveTime: 0.5
-  projectileSpeed: 20
+  projectileSpeed: 25
   numProjectiles: 1
   numAttacks: 5
-  coolDown: 3
+  coolDown: 1
   targetPosition: {x: 0, y: 20}
   randOffSet: 10
   trajectoryDelay: 0.17
   moveBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  leftTargetPos: {x: 0, y: 0}
+  rightTargetPos: {x: 0, y: 0}

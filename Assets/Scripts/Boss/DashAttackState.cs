@@ -19,6 +19,7 @@ public class DashAttackState : BossState {
     [SerializeField] private float dashWaitSeconds;
     [SerializeField] private int numAttacks;
     [SerializeField] private int numDashes;
+    [SerializeField] private float postAttackWaitSeconds;
 
     private GameObject boss;
     private Transform playerTr;
@@ -27,6 +28,7 @@ public class DashAttackState : BossState {
     private Timer shakeTimer;
     private Timer dashTimer;
     private Timer dashWaitTimer;
+    private Timer postAttackWaitTimer;
 
     private Vector3 moveDir;
     private Vector3 playerPosHold;
@@ -45,7 +47,7 @@ public class DashAttackState : BossState {
         {
             SoundManager.Instance.PlayBossGenericRoarSound();
         }
-        
+        postAttackWaitTimer = new Timer(postAttackWaitSeconds);
         boss = stateMachine.gameObject;
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -131,7 +133,11 @@ public class DashAttackState : BossState {
                     stage = 1;
                 }
                 else {
-                    stateMachine.SwitchToRandomState();
+                    postAttackWaitTimer.Tick(Time.deltaTime);
+                    if (postAttackWaitTimer.Done())
+                    {
+                        stateMachine.SwitchToRandomState();
+                    }
                 }
                 break;
             default:

@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
             Destroy(ball);
         }
 
+        bossPhaseTwo = false;
         boss = Instantiate(bossPrefab, bossStartPosition, Quaternion.identity);
         player.ResetPlayer();
         Time.timeScale = 1;

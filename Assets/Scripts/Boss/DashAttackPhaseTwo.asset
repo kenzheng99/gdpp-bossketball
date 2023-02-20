@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681449f8db654604a787fe44886a13a7, type: 3}
   m_Name: DashAttackPhaseTwo
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  dashSpeed: 0
-  aggroDistance: 0
-  shakeDurationSeconds: 0
-  shakeMagnitude: 0
-  shakeSpeed: 0
-  dashWaitSeconds: 0
-  numAttacks: 0
-  numDashes: 0
+  moveSpeed: 3
+  dashSpeed: 6
+  aggroDistance: 17
+  shakeDurationSeconds: 1.25
+  shakeMagnitude: 0.25
+  shakeSpeed: 200
+  dashWaitSeconds: 0.2
+  numAttacks: 2
+  numDashes: 2
+  postAttackWaitSeconds: 0.5

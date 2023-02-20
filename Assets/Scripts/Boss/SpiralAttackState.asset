@@ -16,7 +16,7 @@ MonoBehaviour:
   postAttackWait: 1
   bossMoveTime: 0.5
   projectileSpeed: 20
-  numProjectiles: 20
+  numProjectiles: 15
   numAttacks: 4
-  coolDown: 0.1
+  coolDown: 0.075
   targetPosition: {x: 0, y: 20}

@@ -45,11 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8255215019295333938, guid: 139c09de669d89546999f577551dd885, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.53
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8255215019295333938, guid: 139c09de669d89546999f577551dd885, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8255215019295333938, guid: 139c09de669d89546999f577551dd885, type: 3}
       propertyPath: m_LocalPosition.z
@@ -137,3 +137,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139c09de669d89546999f577551dd885, type: 3}
+--- !u!1 &2511010154899169810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8255215019295333937, guid: 139c09de669d89546999f577551dd885, type: 3}
+  m_PrefabInstance: {fileID: 5785027914570972195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1714747399922237017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2511010154899169810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df64eb1fe64134b449cb6cfa8ccd2f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boss: {fileID: 0}
+  hoopDestroyedParticles: {fileID: 0}
+  succesfulShotParticles: {fileID: 0}
+  successfulShotDamage: 0

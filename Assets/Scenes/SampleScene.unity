@@ -924,6 +924,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2768844613666818259, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5223206388999540198, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -971,30 +975,6 @@ PrefabInstance:
     - target: {fileID: 5223206388999540202, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: initialState
-      value: 
-      objectReference: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: idleStatePhaseTwo
-      value: 
-      objectReference: {fileID: 11400000, guid: 38eaa2be00c69584aa7efc53828e8a00, type: 2}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: dashAttackStatePhaseTwo
-      value: 
-      objectReference: {fileID: 11400000, guid: 20fc2614525a0894a9bb909027a430ce, type: 2}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: homingAttackStatePhaseTwo
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f13eabd98508fc49b3cc9aaeeeaeb50, type: 2}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: spiralAttackStatePhaseTwo
-      value: 
-      objectReference: {fileID: 11400000, guid: ce9e3f5438e85e048859d638e1032841, type: 2}
-    - target: {fileID: 9137625031940689171, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: maxHealth
-      value: 165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}

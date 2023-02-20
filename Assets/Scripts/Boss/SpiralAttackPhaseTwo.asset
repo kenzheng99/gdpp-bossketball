@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SpiralAttackPhaseTwo
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 39da10e327a2deb4dbb72b8f5a2f4734, type: 3}
-  postAttackWait: 1
+  postAttackWait: 0.5
   bossMoveTime: 0.5
-  projectileSpeed: 20
-  numProjectiles: 20
-  numAttacks: 4
-  coolDown: 0.1
+  projectileSpeed: 30
+  numProjectiles: 15
+  numAttacks: 8
+  coolDown: 0.022
   targetPosition: {x: 0, y: 20}
