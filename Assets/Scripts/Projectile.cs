@@ -4,8 +4,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     private Vector3 targetPos;
-    private float levelWidth = 50; // set from game manager
-    private float levelHeight = 50; // set from game manager
+    private float levelWidth = 200; // set from game manager
+    private float levelHeight = 200; // set from game manager
     private float projectileSpeed;
 
     private Timer trajectoryTimer;

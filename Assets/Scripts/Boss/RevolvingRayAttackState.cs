@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine;
@@ -7,22 +8,25 @@ using UnityEngine.Serialization;
 public class RevolvingRayAttackState: BossState {
     
     [SerializeField] private GameObject projectilePrefab;
-    // [SerializeField] private float postAttackWait;
+    [SerializeField] private float stateTimerSeconds;
     [SerializeField] private float bossMoveTime;
-    // [SerializeField] private float projectileSpeed;
+    [SerializeField] private int numRays;
     [SerializeField] private int projectilesPerRay;
-    [SerializeField] private int spacing;
-    // [SerializeField] private float coolDown;
+    [SerializeField] private float spacing;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float spawnTimeSeconds;
     [SerializeField] private Vector2 targetPosition;
 
     private GameObject boss;
+    private bool[,] spawned;
     private List<GameObject> projectiles;
-    private bool spawnOnce;
+    private Timer stateTimer;
+    private Timer spawnTimer;
+    
+    private bool doneSpawning;
     private Vector3 fireDir;
-    private Timer fireCoolDown;
-    private Timer postAttackWaitTimer;
-    private int numFired;
     private Vector2 currentVelocity;
+    
 
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("RevolvingRayAttackState");
@@ -31,40 +35,55 @@ public class RevolvingRayAttackState: BossState {
         {
             SoundManager.Instance.PlayBossGenericRoarSound();
         }
-        // postAttackWaitTimer = new Timer(postAttackWait);
-        // fireCoolDown = new Timer(coolDown);
+
+        stateTimer = new Timer(stateTimerSeconds);
         
         boss = stateMachine.gameObject;
         
-        numFired = 0;
-        fireDir = Vector3.down.normalized;
-        spawnOnce = false;
+        fireDir = Vector3.up.normalized;
+        spawned = new bool[numRays,projectilesPerRay];
         projectiles = new List<GameObject>();
+        doneSpawning = false;
+        spawnTimer = new Timer(spawnTimeSeconds);
     }
 
     public override void UpdateState(BossStateMachine stateMachine) {
 
-        if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
-            // arrived, start attack
-            if (!spawnOnce) {
-                for (var i = 1; i <= projectilesPerRay; i++) {
-                    Vector3 projPos = boss.transform.position + (fireDir * i * spacing);
-                    projectiles.Add(Instantiate(projectilePrefab, projPos, Quaternion.identity));
-                }
-
-                spawnOnce = true;
+        if (spawnTimer != null) {
+            spawnTimer.Tick(Time.deltaTime);
+            if (spawnTimer.Done()) {
+                Physics2D.IgnoreLayerCollision(6, 9, false);
+                spawnTimer = null;
             }
-
-            // if (fireCoolDown.Done() && numFired < numAttacks*numProjectiles) {
-            //     if (numFired % numProjectiles == 0) {
-            //         fireDir = Quaternion.Euler(0, 0, Random.Range(0,50)) * fireDir;
-            //     }
-            //     FireProjectile(fireDir);
-            //     fireDir = Quaternion.Euler(0, 0, (-360 / (float)numProjectiles)) * fireDir;
-            //     fireCoolDown = new Timer(coolDown);
-            //     numFired++;
-            // }
-            // fireCoolDown.Tick(Time.deltaTime);
+        }
+        if (Vector2.Distance(boss.transform.position, targetPosition) < 0.01) {
+            // arrived, spawn projectiles once
+            if (doneSpawning) {
+                // rotate them
+                foreach (var p in projectiles) {
+                    if (p != null) {
+                        p.transform.RotateAround(targetPosition,
+                            Vector3.back, rotationSpeed * Time.deltaTime);
+                    }
+                }
+            }
+            else {
+                // spawn projectiles, give player invincibility while projectiles spawn
+                Physics2D.IgnoreLayerCollision(6, 9, true);
+                spawnTimer ??= new Timer(spawnTimeSeconds);
+                doneSpawning = true;
+                for (var i = 0; i < numRays; i++) {
+                    for (var ii = 0; ii < projectilesPerRay; ii++) {
+                        if (spawned[i, ii] == false) {
+                            doneSpawning = false;
+                            Vector3 projPos = boss.transform.position + (fireDir * ii * spacing);
+                            projectiles.Add(Instantiate(projectilePrefab, projPos, Quaternion.identity));
+                            spawned[i, ii] = true;
+                        }
+                    }
+                    fireDir = Quaternion.Euler(0, 0, (-360 / (float)numRays)) * fireDir;
+                }
+            }
         }
         else {
             // move to target position
@@ -72,21 +91,8 @@ public class RevolvingRayAttackState: BossState {
                 bossMoveTime);
             boss.transform.position = newPosition;
         }
-
-        // if (numFired >= numAttacks * numProjectiles) {
-        //     postAttackWaitTimer.Tick(Time.deltaTime);
-        // }
-        // if (postAttackWaitTimer.Done()) {
-            // stateMachine.SwitchToRandomState();
-        // }
-    }
-
-    private GameObject PlaceProjectile(Vector3 position) {
-        // Vector3 spawnPos = boss.transform.position; // makes a V2 out of V2
-        // GameObject projectileObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
-        // Projectile projectile = projectileObj.GetComponent<Projectile>();
-        // projectile.SetTrajectory(target, projectileSpeed);
-        GameObject projectileObj = Instantiate(projectilePrefab, position, Quaternion.identity);
-        return projectileObj; // return projectile lets you edit projectile trajectory later (player seeking)
+        if (stateTimer.Done()) {
+            stateMachine.SwitchToRandomState();
+        }
     }
 }

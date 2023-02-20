@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: RevolvingRayAttackState
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 8186a545990e1c543b7eb770d9c157af, type: 3}
+  stateTimerSeconds: 10
   bossMoveTime: 0.5
-  projectilesPerRay: 10
-  spacing: 2
+  numRays: 3
+  projectilesPerRay: 30
+  spacing: 2.2
+  rotationSpeed: 60
+  spawnRate: 2
   targetPosition: {x: 0, y: 20}
