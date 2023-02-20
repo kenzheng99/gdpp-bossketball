@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
     public int currentHealth;
     [SerializeField] private GameObject bossModel;
     public bool hasEnteredPhaseTwo = false;
-    [SerializeField] private GameObject eyeball;
+    [SerializeField] private BossEyeball eyeball;
     private GameManager gameManager;
     private Vector3 startingPosition;
 
@@ -20,8 +20,6 @@ public class Boss : MonoBehaviour
         currentHealth = maxHealth;
         gameManager.UpdateBossHealth(currentHealth);
         startingPosition = transform.position;
-        //eyeball.GetComponent<CircleCollider2D>().enabled = false;
-
     }
 
     void Update()
@@ -45,7 +43,7 @@ public class Boss : MonoBehaviour
         {
             GameManager.Instance.bossPhaseTwo = true;
             hasEnteredPhaseTwo = true;
-            //eyeball.GetComponent<CircleCollider2D>().enabled = true;
+            eyeball.SetRed();
             SoundManager.Instance.PlayBossPhaseTwoIntroSound();
         }
     }
@@ -55,6 +53,7 @@ public class Boss : MonoBehaviour
         gameManager.UpdateBossHealth(currentHealth);
         transform.position = startingPosition;
         gameManager.bossPhaseTwo = false;
+        eyeball.SetBlue();
         BossStateMachine stateMachine = GetComponent<BossStateMachine>();
         stateMachine.SwitchState(stateMachine.initialState);
     }
