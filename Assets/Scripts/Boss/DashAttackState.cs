@@ -134,9 +134,13 @@ public class DashAttackState : BossState {
                 }
                 else {
                     postAttackWaitTimer.Tick(Time.deltaTime);
-                    if (postAttackWaitTimer.Done())
-                    {
-                        stateMachine.SwitchToRandomState();
+                    if (postAttackWaitTimer.Done()) {
+                        if (GameManager.Instance.bossPhaseTwo) {
+                            stateMachine.SwitchState(stateMachine.spiralAttackStatePhaseTwo);
+                        }
+                        else {
+                            stateMachine.SwitchState(stateMachine.spiralAttackState);
+                        }
                     }
                 }
                 break;
@@ -144,35 +148,5 @@ public class DashAttackState : BossState {
                 Debug.Log("Unknown stage of attack: " + stage);
                 break;
         }
-        
-        
-
-        // if (directionTimer.Done()) {
-        //     dirDelta = Random.Range(-moveDirectionDelta, moveDirectionDelta);
-        //     directionTimer = new Timer(waitTimeSeconds);
-        // }
-        //
-        // var bossPos = boss.transform.position;
-        // if (Math.Abs(bossPos.x) > moveBounds.max.x) {
-        //     moveDir.x *= -1;
-        // } else if (bossPos.y > moveBounds.max.y || bossPos.y < moveBounds.min.y) {
-        //     moveDir.y *= -1;
-        // }
-        //
-        // moveDir = Quaternion.Euler(0, 0, dirDelta) * moveDir;
-        // boss.transform.Translate(moveSpeed * Time.deltaTime * moveDir);
-        // directionTimer.Tick(Time.deltaTime);
-        //
-        // // end state if timer done
-        // stateTimer.Tick(Time.deltaTime);
-        // if (stateTimer.Done()) {
-        //     stateMachine.SwitchToRandomState();
-        // }
     }
-
-    // private Vector2 PickNewTargetPosition() {
-    //     float targetX = Random.Range(moveBounds.min.x, moveBounds.max.x);
-    //     float targetY = Random.Range(moveBounds.min.y, moveBounds.max.y);
-    //     return new Vector3(targetX, targetY);
-    // }
 }
