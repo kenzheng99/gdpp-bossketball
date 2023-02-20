@@ -187,6 +187,7 @@ MonoBehaviour:
   bossEnteringSpiralAttackSFX: {fileID: 8300000, guid: e5c9d99c2364708468c5c7a712ecd598, type: 3}
   bossEnteringDashingAttackSFX: {fileID: 8300000, guid: 926ce8d09a790f543839ebe20e617569, type: 3}
   bossEnteringHomingAttackSFX: {fileID: 8300000, guid: b07c38037e064734ca6c460bab410e5a, type: 3}
+  bossEnteringRevolvingAttackSFX: {fileID: 8300000, guid: 256f30206c971eb43bcef8f91ab411c3, type: 3}
   bossHoopDamagedSFX: {fileID: 8300000, guid: 2549aa2081585ec438811edddc552efb, type: 3}
   bossHoopDestroyedSFX: {fileID: 8300000, guid: 555b901bf3706d647bac736913fc5cf7, type: 3}
   bossEnteringPhaseTwoSFX: {fileID: 8300000, guid: 885fd17224d5141468542c9a8577e80b, type: 3}

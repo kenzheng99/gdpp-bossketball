@@ -30,7 +30,7 @@ public class RevolvingRayAttackState: BossState {
 
     public override void EnterState(BossStateMachine stateMachine) {
         Debug.Log("RevolvingRayAttackState");
-        SoundManager.Instance.PlaySpiralAttackIntroSound();
+        SoundManager.Instance.PlayRevolvingAttackIntroSound();
         if (GameManager.Instance.bossPhaseTwo == true)
         {
             SoundManager.Instance.PlayBossGenericRoarSound();

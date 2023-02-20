@@ -1719,18 +1719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8093bbb1ceb994d89a65f9695249fe57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
+  initialState: {fileID: 11400000, guid: 38eaa2be00c69584aa7efc53828e8a00, type: 2}
   idleState: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
   spiralAttackState: {fileID: 11400000, guid: 7892824e594d84b24beefdebc3c25a42, type: 2}
   stationaryState: {fileID: 11400000, guid: 329782ca8a2e62c458f537b68d056eb8, type: 2}
   homingAttackState: {fileID: 11400000, guid: 8bec8ee8c02a4d548b5cb10b49e81f2c, type: 2}
   dashAttackState: {fileID: 11400000, guid: 31ad9ce3b683f18409a60ab748a21346, type: 2}
+  revolvingRayAttackState: {fileID: 11400000, guid: 9f28fde9856c6d742be6e85e7dd6a9d1, type: 2}
   idleStatePhaseTwo: {fileID: 11400000, guid: 38eaa2be00c69584aa7efc53828e8a00, type: 2}
   spiralAttackStatePhaseTwo: {fileID: 11400000, guid: ce9e3f5438e85e048859d638e1032841, type: 2}
   homingAttackStatePhaseTwo: {fileID: 11400000, guid: 4f13eabd98508fc49b3cc9aaeeeaeb50, type: 2}
   dashAttackStatePhaseTwo: {fileID: 11400000, guid: 74da2958e5bc8004fa1b18eff99dd2c9, type: 2}
-  revolvingRayAttackState: {fileID: 0}
-  revolvingRayAttackState: {fileID: 11400000, guid: 9f28fde9856c6d742be6e85e7dd6a9d1, type: 2}
 --- !u!1 &5892054575230144844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,13 +3378,61 @@ PrefabInstance:
       propertyPath: _boss
       value: 
       objectReference: {fileID: 9137625031940689171}
+    - target: {fileID: 4506288743006318617, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932493851476652661, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932493851735059717, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932493851829814456, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932493852293013522, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932493852454591940, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5089904519020343497, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
       propertyPath: m_Name
       value: Eyeball
       objectReference: {fileID: 0}
     - target: {fileID: 5089904519020343497, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402529753260190, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402530281209053, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402530511415693, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402530604503202, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402530648364036, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493402531402284622, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8259680333854353088, guid: 416f5757d8f08bf44af2e4bc6113bbce, type: 3}
       propertyPath: m_RootOrder
