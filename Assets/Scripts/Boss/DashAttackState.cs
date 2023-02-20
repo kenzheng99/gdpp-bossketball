@@ -1,11 +1,4 @@
-using System;
-using System.Collections;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
-
 
 [CreateAssetMenu(menuName = "BossStates/DashAttackState")]
 public class DashAttackState : BossState {
