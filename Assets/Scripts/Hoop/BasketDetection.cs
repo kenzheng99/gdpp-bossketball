@@ -63,6 +63,9 @@ public class BasketDetection : MonoBehaviour {
                     SoundManager.Instance.PlayHoopDestroyedSound();
                     // turn off collider to prevent player shooting into it again (particle effect needs time to run)
                     GetComponent<BoxCollider2D>().enabled = false;
+                    // make object seem like it disappears
+                    gameObject.transform.localScale = Vector3.zero;
+                    // then actually destroy the hoop after particle plays
                     Invoke(nameof(DestroyHoop), particleDuration);
 
                 }

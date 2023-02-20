@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour
     public int currentHealth;
     [SerializeField] private GameObject bossModel;
     public bool hasEnteredPhaseTwo = false;
-
+    [SerializeField] private GameObject eyeball;
     private GameManager gameManager;
     private Vector3 startingPosition;
 
@@ -20,6 +20,8 @@ public class Boss : MonoBehaviour
         currentHealth = maxHealth;
         gameManager.UpdateBossHealth(currentHealth);
         startingPosition = transform.position;
+        eyeball.GetComponent<CircleCollider2D>().enabled = false;
+
     }
 
     void Update()
@@ -43,6 +45,7 @@ public class Boss : MonoBehaviour
         {
             GameManager._instance.bossPhaseTwo = true;
             hasEnteredPhaseTwo = true;
+            eyeball.GetComponent<CircleCollider2D>().enabled = true;
             SoundManager.Instance.PlayBossPhaseTwoIntroSound();
         }
     }
@@ -51,6 +54,7 @@ public class Boss : MonoBehaviour
         currentHealth = maxHealth;
         gameManager.UpdateBossHealth(currentHealth);
         transform.position = startingPosition;
+        gameManager.bossPhaseTwo = false;
         BossStateMachine stateMachine = GetComponent<BossStateMachine>();
         stateMachine.SwitchState(stateMachine.initialState);
     }
@@ -64,6 +68,8 @@ public class Boss : MonoBehaviour
         SoundManager.Instance.PlayBossDeathSound();
         //turn off colliders 
         GetComponent<CircleCollider2D>().enabled = false;
+        // ignore collision of player and boss projectiles
+        Physics2D.IgnoreLayerCollision(6, 9, true);
         //turn off boss state machine
         _bossStateMachine.enabled = false;
         //play particle effect

@@ -11,11 +11,20 @@ public class BossStateMachine : MonoBehaviour {
     [SerializeField] public HomingAttackState homingAttackState;
     [SerializeField] public DashAttackState dashAttackState;
 
+    // phase two
+    [SerializeField] public IdleState idleStatePhaseTwo;
+    [SerializeField] public SpiralAttackState spiralAttackStatePhaseTwo;
+    [SerializeField] public HomingAttackState homingAttackStatePhaseTwo;
+    [SerializeField] public DashAttackState dashAttackStatePhaseTwo;
+
+
 
     private BossState[] stateList;
+    private BossState[] phaseTwoStateList;
     private BossState currentState;
     void Start() {
         stateList = new BossState[] {idleState, spiralAttackState, homingAttackState, dashAttackState};
+        phaseTwoStateList = new BossState[] { idleStatePhaseTwo, spiralAttackStatePhaseTwo, homingAttackStatePhaseTwo, dashAttackStatePhaseTwo };
         currentState = initialState;
         initialState.EnterState(this);
     }
@@ -32,11 +41,24 @@ public class BossStateMachine : MonoBehaviour {
     }
 
     public void SwitchToRandomState() {
-        int randomIndex = Random.Range(0, stateList.Length);
-        while (stateList[randomIndex] == currentState) {
-            randomIndex = Random.Range(0, stateList.Length);
+        if (GameManager._instance.bossPhaseTwo)
+        {
+            int randomIndex = Random.Range(0, phaseTwoStateList.Length);
+            while (phaseTwoStateList[randomIndex] == currentState)
+            {
+                randomIndex = Random.Range(0, phaseTwoStateList.Length);
+            }
+            SwitchState(phaseTwoStateList[randomIndex]);
         }
-        SwitchState(stateList[randomIndex]);
-}
+        else
+        {
+            int randomIndex = Random.Range(0, stateList.Length);
+            while (stateList[randomIndex] == currentState)
+            {
+                randomIndex = Random.Range(0, stateList.Length);
+            }
+            SwitchState(stateList[randomIndex]);
+        }
+    }
     
 }

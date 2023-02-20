@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cea6f97abaf44064b9230582be135870, type: 3}
-  m_Name: HomingAttackState
+  m_Name: HomingAttackPhaseTwo
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1508513104436521117, guid: 57eb76487c5f25c48a1fb4e1e10a0efc, type: 3}
-  postAttackWait: 1
+  postAttackWait: 0.5
   bossMoveTime: 0.5
-  projectileSpeed: 20
+  projectileSpeed: 25
   numProjectiles: 1
   numAttacks: 5
-  coolDown: 3
+  coolDown: 1
   targetPosition: {x: 0, y: 20}
   randOffSet: 10
   trajectoryDelay: 0.17

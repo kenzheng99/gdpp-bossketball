@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Eye : MonoBehaviour
+{
+    public Boss _boss;
+    [SerializeField] private ParticleSystem hoopDestroyedParticles;
+    [SerializeField] private ParticleSystem succesfulShotParticles;
+    [SerializeField] private int successfulShotDamage;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Ball"))
+        {
+            SoundManager.Instance.PlayHoopDestroyedSound();
+            Destroy(col.gameObject);
+            //boss takes damage
+            _boss.BossTakeDamage(successfulShotDamage);
+            if (_boss.currentHealth > 0)
+            {
+                //play particle effect 
+                var particleEmission = succesfulShotParticles.emission;
+                var particleDuration = succesfulShotParticles.duration;
+                particleEmission.enabled = true;
+                succesfulShotParticles.Play();
+                Invoke(nameof(StopSuccesfulShotParticles), particleDuration - 1);
+                SoundManager.Instance.PlayBossHoopDamagedSound();
+            }
+
+            else
+            {
+                //play hoopDestroyedParticles and destroy eye
+                var particleEmission = hoopDestroyedParticles.emission;
+                var particleDuration = hoopDestroyedParticles.duration;
+                particleEmission.enabled = true;
+                hoopDestroyedParticles.Play();
+                SoundManager.Instance.PlayBossHoopDestroyedSound();
+                // turn off collider to prevent player shooting into it again (particle effect needs time to run)
+                GetComponent<CircleCollider2D>().enabled = false;
+                Invoke(nameof(DestroyEye), particleDuration - 1);
+            }
+            
+        }
+    }
+
+    void StopSuccesfulShotParticles()
+    {
+        succesfulShotParticles.Stop();
+    }
+    void DestroyEye()
+    {
+        Destroy(gameObject);
+    }
+}
