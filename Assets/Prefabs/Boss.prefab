@@ -154,6 +154,7 @@ MonoBehaviour:
   spiralAttackStatePhaseTwo: {fileID: 11400000, guid: ce9e3f5438e85e048859d638e1032841, type: 2}
   homingAttackStatePhaseTwo: {fileID: 11400000, guid: 4f13eabd98508fc49b3cc9aaeeeaeb50, type: 2}
   dashAttackStatePhaseTwo: {fileID: 11400000, guid: 74da2958e5bc8004fa1b18eff99dd2c9, type: 2}
+  revolvingAttackPhaseTwo: {fileID: 11400000, guid: 48674af6fddeaeb44925812ffdae44f9, type: 2}
 --- !u!1001 &1186569009480842041
 PrefabInstance:
   m_ObjectHideFlags: 0
