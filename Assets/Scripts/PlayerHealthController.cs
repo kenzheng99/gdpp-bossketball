@@ -60,7 +60,9 @@ public class PlayerHealthController : MonoBehaviour
         isInvulnerable = true;
         // when invulnerable can go through boss w/o getting hurt
         Physics2D.IgnoreLayerCollision(6, 8, true);
-           
+        Physics2D.IgnoreLayerCollision(6, 10, true);
+        Physics2D.IgnoreLayerCollision(6, 11, true);
+
         for (float i = 0; i < invulnerableDurationSeconds; i += invulnerabilityDeltaTime)
         {
             // Alternate between 0 and 1 scale to simulate flashing

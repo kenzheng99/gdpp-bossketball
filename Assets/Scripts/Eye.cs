@@ -45,6 +45,7 @@ public class Eye : MonoBehaviour
                 else
                 {
                     //play hoopDestroyedParticles and destroy eye
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
                     var particleEmission = hoopDestroyedParticles.emission;
                     var particleDuration = hoopDestroyedParticles.duration;
                     particleEmission.enabled = true;
