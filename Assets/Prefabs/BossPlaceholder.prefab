@@ -1730,6 +1730,7 @@ MonoBehaviour:
   homingAttackStatePhaseTwo: {fileID: 11400000, guid: 4f13eabd98508fc49b3cc9aaeeeaeb50, type: 2}
   dashAttackStatePhaseTwo: {fileID: 11400000, guid: 74da2958e5bc8004fa1b18eff99dd2c9, type: 2}
   revolvingRayAttackState: {fileID: 0}
+  revolvingRayAttackState: {fileID: 11400000, guid: 9f28fde9856c6d742be6e85e7dd6a9d1, type: 2}
 --- !u!1 &5892054575230144844
 GameObject:
   m_ObjectHideFlags: 0
