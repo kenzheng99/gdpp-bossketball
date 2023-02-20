@@ -9,18 +9,6 @@ public class Eye : MonoBehaviour
     [SerializeField] private ParticleSystem succesfulShotParticles;
     [SerializeField] private int successfulShotDamage;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (GameManager.Instance.bossPhaseTwo)
@@ -49,6 +37,8 @@ public class Eye : MonoBehaviour
                     var particleDuration = hoopDestroyedParticles.duration;
                     particleEmission.enabled = true;
                     hoopDestroyedParticles.Play();
+                    var collider = GetComponent<CircleCollider2D>();
+                    collider.enabled = false;
                     SoundManager.Instance.PlayBossHoopDestroyedSound();
                     // turn off collider to prevent player shooting into it again (particle effect needs time to run)
                     //GetComponent<CircleCollider2D>().enabled = false;
