@@ -22,11 +22,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip bossEnteringSpiralAttackSFX;
     public AudioClip bossEnteringDashingAttackSFX;
     public AudioClip bossEnteringHomingAttackSFX;
+    public AudioClip bossEnteringRevolvingAttackSFX;
     public AudioClip bossHoopDamagedSFX;
     public AudioClip bossHoopDestroyedSFX;
     public AudioClip bossEnteringPhaseTwoSFX;
-    public AudioClip bossDeathSFX;
+    public AudioClip bossDeathSFX;  
     public AudioClip bossGenericRoarSFX;
+
     
     //particles
     public AudioClip succesfulShotSFX;
@@ -116,6 +118,12 @@ public class SoundManager : MonoBehaviour
     {
         bossSFXSource.clip = bossEnteringDashingAttackSFX;
         bossSFXSource.PlayOneShot(bossEnteringDashingAttackSFX);
+    }
+
+    public void PlayRevolvingAttackIntroSound()
+    {
+        bossSFXSource.clip = bossEnteringRevolvingAttackSFX;
+        bossSFXSource.PlayOneShot(bossEnteringRevolvingAttackSFX);
     }
 
     public void PlayBossGenericRoarSound()
