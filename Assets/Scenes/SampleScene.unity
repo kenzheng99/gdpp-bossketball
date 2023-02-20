@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7565512848223069191, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7565512848223069243, guid: 28fe255b22026ba4d9d5afbe338eb525, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -772,10 +776,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
-      propertyPath: bossEnteringRevolvingAttackSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 256f30206c971eb43bcef8f91ab411c3, type: 3}
     - target: {fileID: 7025494258748486098, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -912,54 +912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2647463155442973858, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647463155549525279, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647463155794561647, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647463155900032478, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2647463156073928712, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2768844613666818259, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770716559492692, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770717125073028, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770717315476510, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770717338659000, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770717446951319, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238770717653009607, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 5223206388999540198, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -1007,22 +959,6 @@ PrefabInstance:
     - target: {fileID: 5223206388999540202, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: initialState
-      value: 
-      objectReference: {fileID: 11400000, guid: 07d797a5fc6fa4f3cb09697d8ae7a218, type: 2}
-    - target: {fileID: 5279727204240691658, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: revolvingRayAttackState
-      value: 
-      objectReference: {fileID: 11400000, guid: 9f28fde9856c6d742be6e85e7dd6a9d1, type: 2}
-    - target: {fileID: 6793571239273826307, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9137625031940689171, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
-      propertyPath: maxHealth
-      value: 165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723c35d92baa8b5479c2fbfe2d7eface, type: 3}
