@@ -19,5 +19,5 @@ MonoBehaviour:
   projectilesPerRay: 30
   spacing: 2.2
   rotationSpeed: 60
-  spawnRate: 2
+  spawnTimeSeconds: 0.5
   targetPosition: {x: 0, y: 20}

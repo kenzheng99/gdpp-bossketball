@@ -91,7 +91,12 @@ public class RevolvingRayAttackState: BossState {
                 bossMoveTime);
             boss.transform.position = newPosition;
         }
+        
+        stateTimer.Tick(Time.deltaTime);
         if (stateTimer.Done()) {
+            foreach (var p in projectiles) {
+                Destroy(p);
+            }
             stateMachine.SwitchToRandomState();
         }
     }
