@@ -21,7 +21,7 @@ public class Eye : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         if (GameManager.Instance.bossPhaseTwo)
         {
