@@ -772,6 +772,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1005507410452617262, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
+      propertyPath: bossEnteringRevolvingAttackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 256f30206c971eb43bcef8f91ab411c3, type: 3}
     - target: {fileID: 7025494258748486098, guid: fc3d53d70ea124e88afc612a668bebe6, type: 3}
       propertyPath: m_RootOrder
       value: 10
