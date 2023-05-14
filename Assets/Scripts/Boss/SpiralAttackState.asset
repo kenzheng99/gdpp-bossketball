@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a262fbcea845458ec32c62e37859d8, type: 3}
+  m_Name: SpiralAttackState
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1508513104436521117, guid: 39da10e327a2deb4dbb72b8f5a2f4734, type: 3}
+  postAttackWait: 1
+  bossMoveTime: 0.5
+  projectileSpeed: 20
+  numProjectiles: 15
+  numAttacks: 4
+  coolDown: 0.075
+  targetPosition: {x: 0, y: 20}
